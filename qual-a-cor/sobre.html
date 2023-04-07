@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./styles/text.css">
+    <title>Qual a Cor? | Sobre</title>
+    <meta name="description" content="Saiba mais sobre o website Qual a Cor?">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img src="./images/navlogo-light.svg" alt="Logo do Qual a Cor?" id="navlogo"></a>
+            <ul>
+                <li id="live"><a href="./ao-vivo.html">Ao Vivo</a></li>
+                <li><a href="./dicas.html">Dicas</a></li>
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><i class="bi bi-moon-stars-fill" id="toggle-dark-mode"></i></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h1>Sobre</h1>
+            <p>O Qual a Cor? é um projeto criado para ajudar pessoas com daltonismo a identificar de maneira eficiente e
+                eficaz os nomes corretos das cores. Além disso, o site também oferece ferramentas para desenvolvedores
+                interessados em promover uma acessibilidade maior para daltônicos em seus produtos.</p>
+            <p>A ferramenta tem como origem um projeto de Trabalho de Conclusão de Curso para um curso técnico de
+                Informática para Internet e foi criada com a idéia de fornecer funcionalidades integradas em um único
+                lugar para facilitar o cotidiano de pessoas com dificuldades na identificação e percepção das cores.</p>
+            <p>A lista com os nomes de cores foi composta a partir da <a
+                    href="https://pt.wikipedia.org/wiki/Lista_de_cores">Lista de cores</a> da Wikipédia em Português,
+                selecionando apenas as cores que tinham correspondência com as keywords de cores presentes no CSS. O
+                método de busca do nome das cores foi feito através da distância Euclidiana, interpretando o espaço de
+                cores RGB como um cubo onde cada dimensão corresponde a vermelho, verde ou azul.</p>
+            <p>O modelo de simulação de deficiência na percepção das cores utilizado tem sua origem no artigo "<a
+                    href="https://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html">A
+                    Physiologically-based Model for Simulation of Color Vision Deficiency</a>", escrito por Gustavo
+                Machado, Manuel Oliveira e Leandro Fernandes. A implementação foi feita usando como base as matrizes
+                pré-computadas de protanopia, deuteranopia e tritanopia em suas severidades mais elevadas,
+                oferecidas pelos autores.</p>
+            <p>O cálculo de contraste foi feito utilizando as informações e equações presentes na W3C Wiki e nas
+                Diretrizes de Acessibilidade para Conteúdo Web da W3C em sua versão 2.1</p>
+            <p>É importante ressaltar que os resultados da busca de cores, do modelo de simulação e do cálculo
+                de contraste não são precisos. A busca de cores retorna o nome da cor mais próxima presente na lista de
+                cores do site, não necessariamente correspondendo ao nome correto da cor específica fornecida pelo
+                usuário. Qualquer modelo de simulação da deficiência na percepção das cores, mesmo que preciso, não é
+                perfeito pois simula uma condição com variações significativas de indivíduo para indivíduo, fora a
+                possibilidade de inconsistências na implementação do modelo por parte do Qual a Cor?. O cálculo de
+                contraste também <a href="https://www.w3.org/WAI/GL/wiki/Relative_luminance#ERRATA_NOTICE">não é
+                    perfeito</a>, mesmo sendo baseado no documento mais recente (em sua versão já consolidada,
+                descartando as versões 2.2 e 3.0, ainda em desenvolvimento) da W3C sobre o assunto.</p>
+            <p>Mesmo que seu autor não tenha daltonismo, o site nasceu com o intuito de tornar a web mais acessível para
+                350 milhões de pessoas mundo afora, principalmente aquelas que falam português, e permitir que a criação
+                de produtos digitais com acessibilidade para essa população seja mais fácil e rápida.</p>
+            <p><strong>Tecnologias utilizadas:</strong> <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a> (<a href="https://github.com/twbs/icons/blob/main/LICENSE.md">MIT License</a>), <a href="https://fonts.google.com/specimen/Fira+Sans">Fira Sans</a> (<a href="https://github.com/mozilla/Fira/blob/master/LICENSE">OFL 1.1</a>), <a href="https://p5js.org/">p5.js</a> (<a href="https://github.com/processing/p5.js/blob/main/license.txt">LGPL 2.1</a>)</p>
+        </article>
+    </main>
+    <footer>
+        <style>
+            .credits {
+                text-align: center;
+                margin: 40px 0;
+            }
+
+            .credits-text {
+                font-size: 18px;
+            }
+
+            .credits-heart {
+                margin: 2px;
+                animation: credits-heart 1.5s linear infinite;
+            }
+
+            .credits-link {
+                text-decoration: underline;
+            }
+
+            @keyframes credits-heart {
+                0% {
+                    opacity: 0.3;
+                }
+
+                50% {
+                    opacity: 1;
+                }
+
+                100% {
+                    opacity: 0.3;
+                }
+            }
+        </style>
+        <div class="credits">
+            <p class="credits-text"> Feito com <span class="credits-heart">❤️</span> por <a class="credits-link"
+                    href="https://github.com/theogiovedi" target="_blank">Théo Giovedi</a></p>
+        </div>
+    </footer>
+    <script src="./scripts/text.js" type="module"></script>
+</body>
+
+</html>

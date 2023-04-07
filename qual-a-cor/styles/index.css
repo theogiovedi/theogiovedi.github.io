@@ -1,0 +1,236 @@
+@import url('./general.css');
+@import url('./nav.css');
+
+input[type="text"] {
+    outline: none;
+    font-family: inherit;
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    display: block;
+    margin: 25px auto;
+    font-size: 40px;
+    padding: 5px;
+    text-align: center;
+    border: 3px solid var(--foreground-color);
+    width: 250px;
+    border-radius: 0;
+}
+
+input[type="color"] {
+    display: block;
+    margin: 25px auto;
+    border: 3px solid var(--foreground-color);
+    width: 250px;
+    height: 64px;
+    padding: 5px;
+    background-color: var(--background-color);
+    border-radius: 0;
+}
+
+button {
+    display: block;
+    margin: 25px auto;
+    border: 3px solid var(--foreground-color);
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    font-size: 22px;
+    font-family: inherit;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--foreground-color);
+    color: var(--background-color);
+    transition: ease-in-out 0.3s;
+}
+
+.columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.column {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 40px;
+}
+
+h2 {
+    font-size: 50px;
+    text-align: center;
+    margin: 50px 0;
+    color: var(--foreground-color);
+}
+
+h3 {
+    font-size: 70px;
+    text-align: center;
+    font-weight: normal;
+    color: var(--foreground-color);
+}
+
+#results,
+#contrast {
+    margin: 0 auto;
+    width: 100%;
+}
+
+#results p {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 40px auto;
+    width: calc(100% - 10px);
+    max-width: 500px;
+    font-size: 30px;
+}
+
+.color-square {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--foreground-color);
+    margin: 0 20px;
+}
+
+.approx {
+    font-size: 26px;
+    color: var(--secondary-color);
+    margin-left: 10px;
+}
+
+h4 {
+    color: var(--foreground-color);
+    font-size: 25px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+label {
+    display: block;
+    margin: 0 auto;
+    color: var(--foreground-color);
+    font-size: 20px;
+    text-align: center;
+}
+
+#contrast label,
+#examples label {
+    font-weight: bold;
+}
+
+.contrast-box {
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.contrast-box-text {
+    text-align: justify;
+    font-size: 12pt;
+}
+
+h5 {
+    font-size: 18pt;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+#contrast p {
+    margin: 0 auto 25px auto;
+    color: var(--foreground-color);
+    font-size: 20px;
+    font-weight: normal;
+    text-align: left;
+    width: calc(100% - 20px);
+    max-width: 600px;
+}
+
+svg {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+#learn-more a {
+    display: block;
+    margin: 40px 0;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+.credits {
+    width: 100%;
+    margin-top: 50px;
+}
+
+@media only screen and (max-width: 760px) {
+    #main-footer p {
+        width: calc(100% - 40px);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 50px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 50px;
+        margin: 10px;
+    }
+
+    h6 {
+        margin: 0 10px 25px 10px;
+    }
+
+    #results p {
+        font-size: 20px;
+        width: 320px;
+        margin: 20px auto;
+    }
+
+    .color-square {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+
+    input[type="text"],
+    input[type="color"] {
+        width: calc(100% - 20px);
+    }
+
+    input[type="text"] {
+        font-size: 40px;
+    }
+
+    .approx {
+        display: block;
+        margin: 0;
+    }
+
+    #results p {
+        font-size: 18px;
+        width: 100%;
+        margin: 15px 10px;
+    }
+
+    .color-square {
+        width: 20px;
+        height: 20px;
+    }
+}

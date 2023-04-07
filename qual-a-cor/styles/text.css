@@ -1,0 +1,35 @@
+@import url('./general.css');
+@import url('./nav.css');
+
+article {
+    display: block;
+    color: var(--foreground-color);
+    margin: 0 auto;
+    font-size: 22px;
+    width: calc(100% - 40px);
+    max-width: 600px;
+    line-height: calc(22px * 1.45);
+}
+
+article>ul {
+    padding-left: 30px;
+}
+
+article>ul li {
+    margin: 20px 0;
+}
+
+article>p {
+    font-size: 22px;
+    text-align: justify;
+}
+
+article a {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 620px) {
+    article>p {
+        text-align: left;
+    }
+}
