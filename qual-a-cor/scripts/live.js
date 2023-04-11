@@ -7,12 +7,14 @@ const camContext = camCanvas.getContext("2d", { willReadFrequently: true });
 let hasVideoInput = false;
 let w, h;
 
-function updateCameraCanvas() {
-    w = window.innerWidth - 40;
+let windowSizes = [ window.innerWidth, window.innerHeight ]
+
+function updateCanvas() {
+    w = windowSizes[0] - 40;
     if (w > 600) {
         w = 600;
     }
-    if (window.innerWidth < window.innerHeight) {
+    if (windowSizes[0] < windowSizes[1]) {
         h = w * 4 / 3;
     }
     else {
@@ -20,6 +22,7 @@ function updateCameraCanvas() {
     }
     camCanvas.width = w;
     camCanvas.height = h;
+    windowSizes = [ windowSizes[1], windowSizes[0] ];
 }
 
 function camSetup() {
@@ -50,7 +53,7 @@ function camSetup() {
                 cam.play();
             });
             cam.style.display = "none";
-            updateCameraCanvas();
+            updateCanvas();
         }
     });
 }
@@ -211,4 +214,6 @@ window.addEventListener("load", camSetup);
 cam.addEventListener("playing", camDraw);
 
 let viewport = window.matchMedia("(orientation: landscape)")
-viewport.addEventListener("change", updateCameraCanvas);
+viewport.addEventListener("change", updateCanvas);
+
+//window.addEventListener("resize", updateCanvas)

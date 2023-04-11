@@ -25,8 +25,9 @@
     </header>
 
     <main>
+        <h1>Sobre</h1>
         <article>
-            <h1>Sobre</h1>
+            <h2>Introdução</h2>
             <p>O Qual a Cor? é um projeto criado para ajudar pessoas com daltonismo a identificar de maneira eficiente e
                 eficaz os nomes corretos das cores. Além disso, o site também oferece ferramentas para desenvolvedores
                 interessados em promover uma acessibilidade maior para daltônicos em seus produtos.</p>
@@ -42,7 +43,8 @@
                     href="https://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html">A
                     Physiologically-based Model for Simulation of Color Vision Deficiency</a>", escrito por Gustavo
                 Machado, Manuel Oliveira e Leandro Fernandes. A implementação foi feita usando como base as matrizes
-                pré-computadas de protanopia, deuteranopia e tritanopia em suas severidades mais elevadas,
+                pré-computadas de protanomalia, deuteranomalia e tritanomalia em suas severidades mais elevadas
+                (protanopia, deuteranopia e tritanopia, respectivamente),
                 oferecidas pelos autores.</p>
             <p>O cálculo de contraste foi feito utilizando as informações e equações presentes na W3C Wiki e nas
                 Diretrizes de Acessibilidade para Conteúdo Web da W3C em sua versão 2.1</p>
@@ -51,7 +53,7 @@
                 cores do site, não necessariamente correspondendo ao nome correto da cor específica fornecida pelo
                 usuário. Qualquer modelo de simulação da deficiência na percepção das cores, mesmo que preciso, não é
                 perfeito pois simula uma condição com variações significativas de indivíduo para indivíduo, fora a
-                possibilidade de inconsistências na implementação do modelo por parte do Qual a Cor?. O cálculo de
+                possibilidade de inconsistências na implementação do modelo por parte do projeto. O cálculo de
                 contraste também <a href="https://www.w3.org/WAI/GL/wiki/Relative_luminance#ERRATA_NOTICE">não é
                     perfeito</a>, mesmo sendo baseado no documento mais recente (em sua versão já consolidada,
                 descartando as versões 2.2 e 3.0, ainda em desenvolvimento) da W3C sobre o assunto.</p>
@@ -62,7 +64,43 @@
                 (<a href="https://github.com/twbs/icons/blob/main/LICENSE.md">MIT License</a>), <a
                     href="https://fonts.google.com/specimen/Fira+Sans">Fira Sans</a> (<a
                     href="https://github.com/mozilla/Fira/blob/master/LICENSE">OFL 1.1</a>)</p>
+            <h2>Dicas</h2>
+            <ul>
+                <li>Em gráficos de setores (pizza), sempre utilize um rótulo para cada seção, além da cor;<sup>[1]
+                        [2]</sup></li>
+                <li>Quando o usuário tiver que escolher uma cor para um produto ou afins, forneça um rótulo com o nome
+                    da cor, além da cor;<sup>[1] [2]</sup></li>
+                <li>Ao invés de utilizar toggles para selecionar uma opção, utilize checkboxes;<sup>[2]</sup></li>
+                <li>Quando tiver de notificar um erro ao usuário, utilize uma mensagem de erro, além da cor que escolher
+                    para sinalizar o erro;<sup>[2]</sup></li>
+                <li>Sempre que possível utilize ferramentas de checagem de contraste entre cores, garantindo que a razão
+                    de contraste esteja de acordo com as Diretrizes de Acessbilidade para Conteúdo Web da
+                    W3C;<sup>[2]</sup></li>
+                <li>Em links, utilize ícones, sublinhado ou formatos diferenciados para distinguir entre o link e o
+                    texto, além da cor;<sup>[2]</sup></li>
+                <li>Evite combinações de cores como: vermelho, verde e marrom; rosa, turquesa e cinza; e roxo e
+                    azul;<sup>[3]</sup></li>
+                <li>Procure usar combinações de cores com azul e laranja ou vermelho;<sup>[3]</sup></li>
+                <li>Procure sempre variar a intensidade do brilho das cores escolhidas, buscando um resultado que fique
+                    legível até mesmo em preto e branco;<sup>[3]</sup></li>
+                <li>Sempre que possível realize simulações de como seu site é percebido por pessoas com alguma
+                    deficiência na percepção de cores.<sup>[1]</sup></li>
+            </ul>
         </article>
+        <footer id="main-footer">
+            <p>[1] FENNER, Priscila. Como tornar o seu site acessível para daltônicos. Hand Talk, 2019.
+                Disponível em: &lt;https://www.handtalk.me/br/blog/acessibilidade-daltonicos/&gt;. Acesso em: 10 mar.
+                2023.</p>
+            <p>[2] FERNANDES, Juliana. Acessibilidade para Daltônicos — Casos de falha e sucesso. Medium, 2017.
+                Disponível
+                em:
+                &lt;https://medium.com/acessibilito/acessibilidade-para-dalt%C3%B4nicos-casos-de-falha-e-sucesso-d76bf6e4261e&gt;.
+                Acesso em: 10 mar. 2023.</p>
+            <p>[3] ROST, Lisa Charlotte. Como pessoas daltônicas enxergam as cores de seus gráficos. Escola de Dados.
+                Disponível em:
+                &lt;https://escoladedados.org/tutoriais/como-pessoas-daltonicas-enxergam-as-cores-de-seus-graficos/&gt;.
+                Acesso em: 10 mar. 2023.</p>
+        </footer>
     </main>
     <footer>
         <style>

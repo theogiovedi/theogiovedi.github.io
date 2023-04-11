@@ -10,15 +10,29 @@ photoDiv.appendChild(photoCanvas);
 const photoContext = photoCanvas.getContext("2d", { willReadFrequently: true });
 let w, h;
 
-function showPhoto() {
-    w = window.innerWidth - 40;
+let windowSizes = [ window.innerWidth, window.innerHeight ]
+
+function toggleOrientation() {
+    windowSizes = [ windowSizes[1], windowSizes[0] ];
+}
+
+function updateCanvas() {
+    if (!photo.src) {
+        return;
+    }
+    w = windowSizes[0] - 40;
     if (w > 600) {
         w = 600;
     }
     h = w * (photo.naturalHeight / photo.naturalWidth);
     photoCanvas.width = w;
     photoCanvas.height = h;
+}
 
+function showPhoto() {
+    if (!photo.src) {
+        return;
+    }
     photoContext.drawImage(photo, 0, 0, w, h);
     let photoPixels = photoContext.getImageData(0, 0, w, h);
 
@@ -168,8 +182,15 @@ function loadPhoto() {
 }
 
 file.addEventListener("change", loadPhoto);
-photo.addEventListener("load", showPhoto);
 type.addEventListener("change", showPhoto);
+photo.addEventListener("load", () => {
+    updateCanvas();
+    showPhoto();
+});
 
-let viewport = window.matchMedia("(orientation: landscape)")
-viewport.addEventListener("change", showPhoto);
+let screenOrientation = window.matchMedia("(orientation: portrait)")
+screenOrientation.addEventListener("change", () => {
+    toggleOrientation();
+    updateCanvas();
+    showPhoto();
+});
