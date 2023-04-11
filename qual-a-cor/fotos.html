@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+    <link rel="stylesheet" href="./styles/photos.css">
+    <title>Qual a Cor? | Fotos</title>
+    <meta name="description" content="Simule o daltonismo nas suas fotos.">
+    <link rel="manifest" href="./manifest.json">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img src="./images/navlogo.svg" alt="Logo do Qual a Cor?" id="navlogo"></a>
+            <ul>
+                <li><a href="./ao-vivo.html">Ao Vivo</a></li>
+                <li><a href="./fotos.html">Fotos</a></li>
+                <li><a href="./paletas.html">Paletas</a></li>
+                <li><a href="./sobre.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Fotos</h1>
+        <label id="file-label">
+            <input type="file" id="file" accept="image/*">
+            Selecione a foto
+        </label>
+        <select name="type" id="type">
+            <option value="normal" selected>Normal</option>
+            <option value="prot">Protanopia</option>
+            <option value="deut">Deuteranopia</option>
+            <option value="trit">Tritanopia</option>
+        </select>
+        <div id="photo"></div>
+        <footer id="main-footer">
+            <p>É importante lembrar que suas fotos não são enviadas para nenhum lugar, e os filtros são
+                aplicados apenas no seu navegador. Suas fotos não são armazenadas em nenhum servidor.</p>
+        </footer>
+    </main>
+    <footer>
+        <style>
+            .credits {
+                text-align: center;
+                margin: 40px 0;
+            }
+
+            .credits-text {
+                font-size: 18px;
+            }
+
+            .credits-heart {
+                margin: 2px;
+                animation: credits-heart 1.5s linear infinite;
+            }
+
+            .credits-link {
+                text-decoration: underline;
+            }
+
+            @keyframes credits-heart {
+                0% {
+                    opacity: 0.3;
+                }
+
+                50% {
+                    opacity: 1;
+                }
+
+                100% {
+                    opacity: 0.3;
+                }
+            }
+        </style>
+        <div class="credits">
+            <p class="credits-text"> Feito com <span class="credits-heart">❤️</span> por <a class="credits-link"
+                    href="https://github.com/theogiovedi" target="_blank">Théo Giovedi</a></p>
+        </div>
+    </footer>
+
+    <script src="./scripts/photos.js"></script>
+</body>
+
+</html>
