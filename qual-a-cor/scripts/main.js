@@ -1,9 +1,6 @@
-import { toggleDarkMode, createResults, createContrast, createExamples, createLearnMore, createMainFooter } from './interface.js'
+import { createResults, createContrast, createExamples, createLearnMore, createPrint, createMainFooter } from './interface.js'
 import { getClosestColor } from './calc.js'
 import { getColorName } from './colors.js'
-
-export const darkMode = document.getElementById("toggle-dark-mode");
-const resultsButton = document.getElementById("results-button");
 
 function showResults() {
     let colorHex;
@@ -31,12 +28,22 @@ function showResults() {
 
     createLearnMore(colorName);
 
+    // PRINT
+
+    createPrint();
+
     // FOOTNOTES
 
     createMainFooter();
 }
 
-darkMode.addEventListener("click", toggleDarkMode);
-if (resultsButton) {
-    resultsButton.addEventListener("click", showResults)
+const resultsButton = document.getElementById("results-button");
+resultsButton.addEventListener("click", showResults)
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker
+            .register("./sw.js")
+            .catch(() => console.log("Erro: Não foi possível registrar o Service Worker"))
+    });
 }

@@ -1,171 +1,6 @@
 import { getColorName } from './colors.js'
-import { darkMode } from './main.js';
 import { normalToProt, normalToDeut, normalToTrit, getRelativeLuminance, getContrast, getClosestColor } from './calc.js'
 import { createSVG } from './svg.js';
-
-export function toggleDarkMode() {
-
-    // Get Page Elements
-    const root = document.querySelector(":root");
-    const logo = document.getElementById("navlogo");
-
-    // Get Styles and Variables
-    const style = getComputedStyle(root);
-    const bg = style.getPropertyValue("--background-color");
-    const fg = style.getPropertyValue("--foreground-color");
-    const black = style.getPropertyValue("--black");
-    const white = style.getPropertyValue("--white");
-    const gray = style.getPropertyValue("--gray");
-    const darkGray = style.getPropertyValue("--dark-gray");
-
-    // Get SVG Elements
-
-    const svgNormal = document.getElementById("svg-normal");
-    const svgProt = document.getElementById("svg-prot");
-    const svgDeut = document.getElementById("svg-deut");
-    const svgTrit = document.getElementById("svg-trit");
-
-    // To Light Mode
-
-    if (fg == white && bg == black) {
-        root.style.setProperty("--foreground-color", black);
-        root.style.setProperty("--background-color", white);
-        root.style.setProperty("--secondary-color", darkGray)
-        darkMode.classList.toggle("bi-moon-stars-fill");
-        darkMode.classList.toggle("bi-brightness-high-fill");
-        logo.src = "./images/navlogo-light.svg";
-
-        // Modify SVG Elements
-
-        if (!svgNormal) {
-            return;
-        }
-
-        // Normal Graphic
-
-        const fgNormal = svgNormal.getElementsByClassName("fg-line");
-        for (let i = 0; i < fgNormal.length; i++) {
-            fgNormal[i].setAttribute("stroke", black);
-            fgNormal[i].setAttribute("fill", black);
-        }
-
-        const bgNormal = svgNormal.getElementsByClassName("bg-line");
-        for (let i = 0; i < bgNormal.length; i++) {
-            bgNormal[i].setAttribute("stroke", gray);
-            bgNormal[i].setAttribute("fill", gray);
-        }
-
-        // Prot Graphic
-
-        const fgProt = svgProt.getElementsByClassName("fg-line");
-        for (let i = 0; i < fgProt.length; i++) {
-            fgProt[i].setAttribute("stroke", black);
-            fgProt[i].setAttribute("fill", black);
-        }
-
-        const bgProt = svgProt.getElementsByClassName("bg-line");
-        for (let i = 0; i < bgProt.length; i++) {
-            bgProt[i].setAttribute("stroke", gray);
-            bgProt[i].setAttribute("fill", gray);
-        }
-
-        // Deut Graphic
-
-        const fgDeut = svgDeut.getElementsByClassName("fg-line");
-        for (let i = 0; i < fgDeut.length; i++) {
-            fgDeut[i].setAttribute("stroke", black);
-            fgDeut[i].setAttribute("fill", black);
-        }
-
-        const bgDeut = svgDeut.getElementsByClassName("bg-line");
-        for (let i = 0; i < bgDeut.length; i++) {
-            bgDeut[i].setAttribute("stroke", gray);
-            bgDeut[i].setAttribute("fill", gray);
-        }
-
-        // Trit Graphic
-
-        const fgTrit = svgTrit.getElementsByClassName("fg-line");
-        for (let i = 0; i < fgTrit.length; i++) {
-            fgTrit[i].setAttribute("stroke", black);
-            fgTrit[i].setAttribute("fill", black);
-        }
-        const bgTrit = svgTrit.getElementsByClassName("bg-line");
-        for (let i = 0; i < bgTrit.length; i++) {
-            bgTrit[i].setAttribute("stroke", gray);
-            bgTrit[i].setAttribute("fill", gray);
-        }
-
-
-        // To Dark Mode
-
-    } else {
-        root.style.setProperty("--foreground-color", white);
-        root.style.setProperty("--background-color", black);
-        root.style.setProperty("--secondary-color", gray);
-        darkMode.classList.toggle("bi-moon-stars-fill");
-        darkMode.classList.toggle("bi-brightness-high-fill");
-        logo.src = "./images/navlogo-dark.svg";
-
-        // Modify SVG Elements
-
-        if (!svgNormal) {
-            return;
-        }
-
-        // Normal Graphic
-
-        const fgNormal = svgNormal.getElementsByClassName("fg-line");
-        for (let i = 0; i < fgNormal.length; i++) {
-            fgNormal[i].setAttribute("stroke", white);
-            fgNormal[i].setAttribute("fill", white);
-        }
-        const bgNormal = svgNormal.getElementsByClassName("bg-line");
-        for (let i = 0; i < bgNormal.length; i++) {
-            bgNormal[i].setAttribute("stroke", darkGray);
-            bgNormal[i].setAttribute("fill", darkGray);
-        }
-
-        // Prot Graphic
-
-        const fgProt = svgProt.getElementsByClassName("fg-line");
-        for (let i = 0; i < fgProt.length; i++) {
-            fgProt[i].setAttribute("stroke", white);
-            fgProt[i].setAttribute("fill", white);
-        }
-        const bgProt = svgProt.getElementsByClassName("bg-line");
-        for (let i = 0; i < bgProt.length; i++) {
-            bgProt[i].setAttribute("stroke", darkGray);
-            bgProt[i].setAttribute("fill", darkGray);
-        }
-
-        // Deut Graphic
-
-        const fgDeut = svgDeut.getElementsByClassName("fg-line");
-        for (let i = 0; i < fgDeut.length; i++) {
-            fgDeut[i].setAttribute("stroke", white);
-            fgDeut[i].setAttribute("fill", white);
-        }
-        const bgDeut = svgDeut.getElementsByClassName("bg-line");
-        for (let i = 0; i < bgDeut.length; i++) {
-            bgDeut[i].setAttribute("stroke", darkGray);
-            bgDeut[i].setAttribute("fill", darkGray);
-        }
-
-        // Trit Graphic
-
-        const fgTrit = svgTrit.getElementsByClassName("fg-line");
-        for (let i = 0; i < fgTrit.length; i++) {
-            fgTrit[i].setAttribute("stroke", white);
-            fgTrit[i].setAttribute("fill", white);
-        }
-        const bgTrit = svgTrit.getElementsByClassName("bg-line");
-        for (let i = 0; i < bgTrit.length; i++) {
-            bgTrit[i].setAttribute("stroke", darkGray);
-            bgTrit[i].setAttribute("fill", darkGray);
-        }
-    }
-}
 
 export function updateContrastValues() {
 
@@ -484,17 +319,8 @@ export function createResults(colorHex) {
     // Create Color Name Container
 
     const colorNameElement = document.createElement("h3");
-    colorNameElement.innerHTML = colorName;
+    colorNameElement.innerHTML = `${colorName}<sup>[1]</sup>`;
     results.appendChild(colorNameElement);
-
-    // If necessary, append a "aprox" to indicate that the name may be wrong
-
-    if (colorHex.toUpperCase() != closestColor.toUpperCase()) {
-        const approxElement = document.createElement("span");
-        approxElement.innerHTML = 'aprox.<sup>[1]</sup>';
-        approxElement.classList.add("approx");
-        colorNameElement.appendChild(approxElement);
-    }
 
     // Create Normal:
 
@@ -1089,6 +915,30 @@ export function createLearnMore(colorName) {
     learnMoreElement.innerHTML = `Saiba mais sobre ${colorName}`;
     learnMoreElement.target = "_blank";
     learnMore.appendChild(learnMoreElement);
+}
+
+export function createPrint() {
+    
+    // Get Print container
+    const printDiv = document.getElementById("print");
+    
+    // Erase previous Print
+    printDiv.innerHTML = "";
+
+    const printButton = document.createElement("button");
+    printButton.innerHTML = "Imprimir página";
+    printButton.addEventListener("click", () => window.print());
+    
+    const printText = document.getElementById("print-text");
+    let date = new Date();
+    let hours = date.getHours();
+    let adverb = hours <= 1 ? 'à' : 'às';
+    printText.innerHTML = `Relatório gerado pelo site <a id="print-link">Qual a Cor?</a> no dia ${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')} ${adverb} ${String(hours).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`
+    
+    const printLink = document.getElementById("print-link");
+    printLink.href = window.location.href;
+
+    printDiv.appendChild(printButton);
 }
 
 export function createMainFooter() {

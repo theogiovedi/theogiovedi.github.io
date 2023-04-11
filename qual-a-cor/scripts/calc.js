@@ -1,5 +1,13 @@
 import { colors } from './colors.js'
 
+export function rgbToHex(r, g, b) {
+    return "#" + r.toString(16).padStart(2, "0").toUpperCase() + g.toString(16).padStart(2, "0").toUpperCase() + b.toString(16).padStart(2, "0").toUpperCase();
+}
+
+export function hexToRgb(rgb) {
+    return [ parseInt(rgb[1] + rgb[2], 16), parseInt(rgb[3] + rgb[4], 16), parseInt(rgb[5] + rgb[6], 16) ];
+}
+
 function multiplyMatrix(red, green, blue, matrix) {
     const rgb = [
         [red / 255],
@@ -36,20 +44,14 @@ function multiplyMatrix(red, green, blue, matrix) {
 }
 
 function getColorDifference(rgb, rgb2) {
-    const red = parseInt(rgb[1] + rgb[2], 16);
-    const green = parseInt(rgb[3] + rgb[4], 16);
-    const blue = parseInt(rgb[5] + rgb[6], 16);
-    const red2 = parseInt(rgb2[1] + rgb2[2], 16);
-    const green2 = parseInt(rgb2[3] + rgb2[4], 16);
-    const blue2 = parseInt(rgb2[5] + rgb2[6], 16);
+    const [ red, green, blue ] = hexToRgb(rgb)
+    const [ red2, green2, blue2 ] = hexToRgb(rgb2);
 
     return Math.sqrt(Math.pow(red2 - red, 2) + Math.pow(green2 - green, 2) + Math.pow(blue2 - blue, 2))
 }
 
 export function normalToProt(rgb) {
-    const red = parseInt(rgb[1] + rgb[2], 16);
-    const green = parseInt(rgb[3] + rgb[4], 16);
-    const blue = parseInt(rgb[5] + rgb[6], 16);
+    const [ red, green, blue ] = hexToRgb(rgb);
     const protMatrix = [
         [0.152286, 1.052583, -0.204868],
         [0.114503, 0.786281, 0.099216],
@@ -60,35 +62,29 @@ export function normalToProt(rgb) {
 }
 
 export function normalToDeut(rgb) {
-    const red = parseInt(rgb[1] + rgb[2], 16);
-    const green = parseInt(rgb[3] + rgb[4], 16);
-    const blue = parseInt(rgb[5] + rgb[6], 16);
+    const [ red, green, blue ] = hexToRgb(rgb);
     const deutMatrix = [
         [0.367322, 0.860646, -0.227968],
         [0.280085, 0.672501, 0.047413],
         [-0.011820, 0.042940, 0.968881]
     ]
     const simulatedRgb = multiplyMatrix(red, green, blue, deutMatrix);
-    return "#" + simulatedRgb[0].toString(16).padStart(2, "0") + simulatedRgb[1].toString(16).padStart(2, "0") + simulatedRgb[2].toString(16).padStart(2, "0")
+    return rgbToHex(simulatedRgb[0], simulatedRgb[1], simulatedRgb[2]);
 }
 
 export function normalToTrit(rgb) {
-    const red = parseInt(rgb[1] + rgb[2], 16);
-    const green = parseInt(rgb[3] + rgb[4], 16);
-    const blue = parseInt(rgb[5] + rgb[6], 16);
+    const [ red, green, blue ] = hexToRgb(rgb);
     const tritMatrix = [
         [1.255528, -0.076749, -0.178779],
         [-0.078411, 0.930809, 0.147602],
         [0.004733, 0.691367, 0.303900]
     ]
     const simulatedRgb = multiplyMatrix(red, green, blue, tritMatrix);
-    return "#" + simulatedRgb[0].toString(16).padStart(2, "0") + simulatedRgb[1].toString(16).padStart(2, "0") + simulatedRgb[2].toString(16).padStart(2, "0")
+    return rgbToHex(simulatedRgb[0], simulatedRgb[1], simulatedRgb[2]);
 }
 
 export function getRelativeLuminance(rgb) {
-    const red = parseInt(rgb[1] + rgb[2], 16);
-    const green = parseInt(rgb[3] + rgb[4], 16);
-    const blue = parseInt(rgb[5] + rgb[6], 16);
+    const [ red, green, blue ] = hexToRgb(rgb);
 
     const rsRgb = red / 255;
     const gsRgb = green / 255;

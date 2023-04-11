@@ -1,10 +1,13 @@
-var cam, w, h;
+const cam = document.createElement("video");
+const camCanvas = document.createElement("canvas");
 const camDiv = document.getElementById("cam");
+camDiv.appendChild(camCanvas);
 const errorMessage = document.createElement("p");
-var hasVideoInput = false;
+const camContext = camCanvas.getContext("2d", { willReadFrequently: true });
+let hasVideoInput = false;
+let w, h;
 
-function createCameraCanvas() {
-    camDiv.innerHTML = "";
+function updateCameraCanvas() {
     w = window.innerWidth - 40;
     if (w > 600) {
         w = 600;
@@ -15,11 +18,11 @@ function createCameraCanvas() {
     else {
         h = w * 3 / 4;
     }
-    canvas = createCanvas(w, h);
-    canvas.parent("cam");
+    camCanvas.width = w;
+    camCanvas.height = h;
 }
 
-function setup() {
+function camSetup() {
 
     navigator.mediaDevices.enumerateDevices().then((devices) => {
         devices.forEach((device) => {
@@ -37,38 +40,40 @@ function setup() {
             camDiv.appendChild(errorMessage);
             return;
         } else {
-            cam = createCapture({
+            navigator.mediaDevices.getUserMedia({
                 video: {
                     facingMode: { ideal: "environment" },
-                }
+                },
+                audio: false
+            }).then(stream => {
+                cam.srcObject = stream;
+                cam.play();
             });
-            cam.hide();
-            createCameraCanvas();
+            cam.style.display = "none";
+            updateCameraCanvas();
         }
     });
 }
 
-function draw() {
+function camDraw() {
 
     if (!hasVideoInput) {
         return;
     }
 
-    camFrame = cam.get();
+    camContext.drawImage(cam, 0, 0, w, h);
+    let camPixels = camContext.getImageData(0, 0, w, h);
 
-    camFrame.loadPixels();
     const type = document.getElementById("type").value;
     switch (type) {
-
         case "normal":
-            image(camFrame, 0, 0, w, h);
-            return
+            break;
         case "prot":
-            for (let i = 0; i < camFrame.pixels.length; i += 4) {
+            for (let i = 0; i < camPixels.data.length; i += 4) {
                 const rgb = [
-                    [camFrame.pixels[i] / 255],
-                    [camFrame.pixels[i + 1] / 255],
-                    [camFrame.pixels[i + 2] / 255]
+                    [camPixels.data[i] / 255],
+                    [camPixels.data[i + 1] / 255],
+                    [camPixels.data[i + 2] / 255]
                 ]
 
                 const matrix = [
@@ -102,17 +107,17 @@ function draw() {
                     simulatedRgb[2][0] = 1;
                 }
 
-                camFrame.pixels[i] = Math.floor(simulatedRgb[0][0] * 255);
-                camFrame.pixels[i + 1] = Math.floor(simulatedRgb[1][0] * 255);
-                camFrame.pixels[i + 2] = Math.floor(simulatedRgb[2][0] * 255);
+                camPixels.data[i] = Math.floor(simulatedRgb[0][0] * 255);
+                camPixels.data[i + 1] = Math.floor(simulatedRgb[1][0] * 255);
+                camPixels.data[i + 2] = Math.floor(simulatedRgb[2][0] * 255);
             }
             break;
         case "deut":
-            for (let i = 0; i < camFrame.pixels.length; i += 4) {
+            for (let i = 0; i < camPixels.data.length; i += 4) {
                 const rgb = [
-                    [camFrame.pixels[i] / 255],
-                    [camFrame.pixels[i + 1] / 255],
-                    [camFrame.pixels[i + 2] / 255]
+                    [camPixels.data[i] / 255],
+                    [camPixels.data[i + 1] / 255],
+                    [camPixels.data[i + 2] / 255]
                 ]
 
                 const matrix = [
@@ -146,17 +151,17 @@ function draw() {
                     simulatedRgb[2][0] = 1;
                 }
 
-                camFrame.pixels[i] = Math.floor(simulatedRgb[0][0] * 255);
-                camFrame.pixels[i + 1] = Math.floor(simulatedRgb[1][0] * 255);
-                camFrame.pixels[i + 2] = Math.floor(simulatedRgb[2][0] * 255);
+                camPixels.data[i] = Math.floor(simulatedRgb[0][0] * 255);
+                camPixels.data[i + 1] = Math.floor(simulatedRgb[1][0] * 255);
+                camPixels.data[i + 2] = Math.floor(simulatedRgb[2][0] * 255);
             }
             break;
         case "trit":
-            for (let i = 0; i < camFrame.pixels.length; i += 4) {
+            for (let i = 0; i < camPixels.data.length; i += 4) {
                 const rgb = [
-                    [camFrame.pixels[i] / 255],
-                    [camFrame.pixels[i + 1] / 255],
-                    [camFrame.pixels[i + 2] / 255]
+                    [camPixels.data[i] / 255],
+                    [camPixels.data[i + 1] / 255],
+                    [camPixels.data[i + 2] / 255]
                 ]
 
                 const matrix = [
@@ -190,17 +195,20 @@ function draw() {
                     simulatedRgb[2][0] = 1;
                 }
 
-                camFrame.pixels[i] = Math.floor(simulatedRgb[0][0] * 255);
-                camFrame.pixels[i + 1] = Math.floor(simulatedRgb[1][0] * 255);
-                camFrame.pixels[i + 2] = Math.floor(simulatedRgb[2][0] * 255);
+                camPixels.data[i] = Math.floor(simulatedRgb[0][0] * 255);
+                camPixels.data[i + 1] = Math.floor(simulatedRgb[1][0] * 255);
+                camPixels.data[i + 2] = Math.floor(simulatedRgb[2][0] * 255);
             }
             break;
     }
 
-    camFrame.updatePixels();
-    image(camFrame, 0, 0, w, h);
+    camContext.putImageData(camPixels, 0, 0);
+    setTimeout(camDraw, 1000 / 24); // 24fps
 }
 
-let viewport = window.matchMedia("(orientation: landscape)")
+window.addEventListener("load", camSetup);
 
-viewport.addEventListener("change", createCameraCanvas);
+cam.addEventListener("playing", camDraw);
+
+let viewport = window.matchMedia("(orientation: landscape)")
+viewport.addEventListener("change", updateCameraCanvas);

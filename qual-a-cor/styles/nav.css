@@ -4,14 +4,11 @@
     }
 
     nav img {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
 
     nav>ul {
         font-size: 24px;
-    }
-    #toggle-dark-mode {
-        font-size: 30px;
     }
 }
 
