@@ -1,7 +1,37 @@
 @import url('./general.css');
 @import url('./nav.css');
 
-#cam p {
+select {
+    display: block;
+    margin: 20px auto;
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    border: 3px solid var(--foreground-color);
+    padding: 10px;
+    font-size: 22px;
+    font-family: 'Fira Sans', sans-serif;
+    width: calc(100% - 40px);
+    max-width: 600px;
+    outline: none;
+    border-radius: 0;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    border: 3px solid var(--foreground-color);
+    padding: 10px;
+    font-size: 22px;
+    font-family: 'Fira Sans', sans-serif;
+    width: calc(100% - 40px);
+    max-width: 600px;
+    outline: none;
+    border-radius: 0;
+}
+
+main p {
     display: block;
     width: calc(100% - 40px);
     max-width: 600px;
@@ -10,7 +40,7 @@
     text-align: left;
 }
 
-#cam p div {
+main p div {
     margin: 0 10px -10px 0;
 }
 

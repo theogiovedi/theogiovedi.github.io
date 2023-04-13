@@ -74,6 +74,10 @@ h3 {
     margin: 0 40px;
 }
 
+code {
+    font-family: 'Fira Code', monospace;
+}
+
 #results,
 #contrast {
     margin: 0 auto;

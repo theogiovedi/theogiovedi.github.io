@@ -10,12 +10,7 @@
     <title>Qual a Cor? | Fotos</title>
     <meta name="description" content="Simule o daltonismo nas suas fotos.">
     <link rel="manifest" href="./manifest.json">
-    <link rel="apple-touch-icon" sizes="192x192" href="images/192.png">
-    <link rel="apple-touch-icon" sizes="384x384" href="images/384.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="images/512.png">
-    <link rel="apple-touch-icon" sizes="1024x1024" href="images/1024.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#F5F5F5">
+    <link rel="apple-touch-icon" href="./images/1024-maskable.png">
 </head>
 
 <body>
@@ -36,13 +31,13 @@
             <input type="file" id="file" accept="image/*">
             Selecione a foto
         </label>
+        <div id="photo"></div>
         <select name="type" id="type">
             <option value="normal" selected>Normal</option>
             <option value="prot">Protanopia</option>
             <option value="deut">Deuteranopia</option>
             <option value="trit">Tritanopia</option>
         </select>
-        <div id="photo"></div>
         <footer id="main-footer">
             <p>É importante lembrar que suas fotos não são enviadas para nenhum lugar, e os filtros são
                 aplicados apenas no seu navegador. Suas fotos não são armazenadas em nenhum servidor.</p>

@@ -10,6 +10,12 @@
     font-weight: bold;
 }
 
+@font-face {
+    font-family: 'Fira Code';
+    src: url('../fonts/FiraCode-Regular.ttf');
+    font-weight: normal;
+}
+
 :root {
     --black: #181818;
     --white: #F5F5F5;
