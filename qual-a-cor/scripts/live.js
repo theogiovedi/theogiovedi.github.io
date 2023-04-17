@@ -1,4 +1,4 @@
-import { drawCameraFrame, setupCamera } from "./lib/setup.js";
+import { drawFrame, setupCamera } from "./lib/setup.js";
 import { updateCameraCanvas } from "./lib/canvas.js";
 
 // Camera Video Element
@@ -40,7 +40,7 @@ window.addEventListener("load", () => {
 // Loop for generating frames
 
 const generateFrames = () => {
-    camPixels = drawCameraFrame(cam, camContext, w, h);
+    camPixels = drawFrame(cam, camContext, w, h);
     setTimeout(generateFrames, framerate);
 }
 cam.addEventListener("playing", () => {
