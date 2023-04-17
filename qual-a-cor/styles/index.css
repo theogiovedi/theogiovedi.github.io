@@ -66,12 +66,17 @@ h2 {
     color: var(--foreground-color);
 }
 
-h3 {
+#color-name {
+    display: block;
     font-size: 70px;
     text-align: center;
     font-weight: normal;
     color: var(--foreground-color);
     margin: 0 40px;
+}
+
+code {
+    font-family: 'Fira Code', monospace;
 }
 
 #results,
@@ -104,9 +109,9 @@ sup {
     font-size: 26px;
 }
 
-h4 {
+h3 {
     color: var(--foreground-color);
-    font-size: 25px;
+    font-size: 28px;
     text-align: center;
     margin-top: 40px;
 }
@@ -122,6 +127,7 @@ label {
 #contrast label,
 #examples label {
     font-weight: bold;
+    font-size: 23px;
 }
 
 .contrast-box {
@@ -185,7 +191,7 @@ h5 {
         font-size: 40px;
     }
 
-    h3 {
+    #color-name {
         font-size: 50px;
         margin: 10px;
     }
@@ -221,7 +227,9 @@ h5 {
         display: block;
         margin: 0;
     }
+}
 
+@media only screen and (max-width: 355px) {
     #results p {
         font-size: 18px;
         width: 100%;
@@ -231,84 +239,5 @@ h5 {
     .color-square {
         width: 20px;
         height: 20px;
-    }
-}
-
-#print-text {
-    display: none;
-}
-
-@page {
-    size: a4;
-    padding: 10px;
-}
-
-@media print {
-
-    header,
-    button,
-    #results h2,
-    footer:not(#main-footer),
-    #learn-more,
-    #print,
-    .columns,
-    .column {
-        display: none !important;
-    }
-
-    h1 {
-        margin-bottom: 20px;
-    }
-
-    h2 {
-        margin-top: 0;
-        margin-bottom: 10px;
-        padding: 40px 0;
-        border-bottom: 3px solid var(--foreground-color);
-    }
-
-    h3 {
-        margin-top: 40px;
-        width: 17cm;
-    }
-
-    h4 {
-        page-break-after: avoid;
-        margin-top: 30px;
-    }
-
-    h4:nth-of-type(3) {
-        padding-top: 40px;
-    }
-
-    #contrast,
-    #examples {
-        page-break-before: always;
-    }
-
-    #contrast p {
-        margin: 10px auto;
-    }
-
-    #main-footer {
-        margin-top: 40px;
-    }
-
-    #examples svg {
-        max-width: 460px;
-    }
-
-    #print-text {
-        display: block;
-        text-align: center;
-        color: var(--secondary-color);
-        width: 100%;
-        border-bottom: 3px solid var(--foreground-color);
-        padding-bottom: 50px;
-        margin-bottom: 0;
-    }
-
-    #print-link {
-        text-decoration: underline;
     }
 }

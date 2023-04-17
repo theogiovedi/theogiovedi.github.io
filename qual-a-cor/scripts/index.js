@@ -1,6 +1,6 @@
-import { createResults, createContrast, createExamples, createLearnMore, createPrint, createMainFooter } from './interface.js'
-import { getClosestColor } from './calc.js'
-import { getColorName } from './colors.js'
+import { createResults, createContrast, createExamples, createLearnMore, createMainFooter } from './lib/interface.js'
+import { getClosestColor } from './lib/calc.js'
+import { getColorName } from './lib/colors.js'
 
 function showResults() {
     let colorHex;
@@ -27,10 +27,6 @@ function showResults() {
     // LEARN MORE
 
     createLearnMore(colorName);
-
-    // PRINT
-
-    createPrint();
 
     // FOOTNOTES
 

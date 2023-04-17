@@ -12,7 +12,7 @@
     }
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 345px) {
     nav>ul {
         font-size: 18px;
     }

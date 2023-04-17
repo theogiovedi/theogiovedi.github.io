@@ -1,32 +1,56 @@
 const cacheName = "qual-a-cor-v2";
 const offlineAssets = [
+
+    // HTML Pages
+    
     "/index.html",
     "/ao-vivo.html",
-    "/dicas.html",
     "/sobre.html",
     "/fotos.html",
+    "/paletas.html",
+
+    // Stylesheets
+
     "/styles/general.css",
     "/styles/index.css",
     "/styles/live.css",
     "/styles/nav.css",
-    "/styles/text.css",
+    "/styles/about.css",
     "/styles/photos.css",
-    "/scripts/calc.js",
-    "/scripts/colors.js",
-    "/scripts/interface.js",
+    "/styles/palettes.css",
+
+    // Page Scripts
+
     "/scripts/live.js",
-    "/scripts/main.js",
-    "/scripts/svg.js",
+    "/scripts/index.js",
     "/scripts/photos.js",
+    "/scripts/palettes.js",
+
+    // Project libraries
+
+    "/scripts/lib/calc.js",
+    "/scripts/lib/cam.js",
+    "/scripts/lib/canvas.js",
+    "/scripts/lib/colors.js",
+    "/scripts/lib/interface.js",
+    "/scripts/lib/svg.js",
+
+    // Icons and Logos
+
     "/images/navlogo.svg",
     "/images/favicon.png",
     "/images/192.png",
     "/images/384.png",
-    "/images/512-maskable.png",
     "/images/512.png",
     "/images/1024.png",
+    "/images/1024-maskable.png",
+
+    // Fonts
+
     "/fonts/FiraSans-Bold.ttf",
+    "/fonts/FiraSans-Italic.ttf",
     "/fonts/FiraSans-Regular.ttf",
+    "/fonts/FiraCode-Regular.ttf",
 ];
 
 self.addEventListener("install", installEvent => {

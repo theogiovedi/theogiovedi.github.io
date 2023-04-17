@@ -1,5 +1,5 @@
 <center>
-<img src="./images/navlogo.svg">
+<img src="./images/navlogo-light.svg">
 <h1>Qual a Cor?</h1>
 </center>
 
