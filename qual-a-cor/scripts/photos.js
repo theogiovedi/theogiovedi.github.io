@@ -31,6 +31,6 @@ photo.addEventListener("load", () => {
 
 window.matchMedia("(orientation: portrait)").addEventListener("change", () => {
     [ windowSizes[0], windowSizes[1] ] = [ windowSizes[1], windowSizes[0] ]
-    [ w, h ] = updatePhotoCanvas(photoCanvas, photo.naturalWidth, photo.naturalHeight);
+    [ w, h ] = updatePhotoCanvas(photoCanvas, windowSizes[0], photo.naturalWidth, photo.naturalHeight);
     drawFrame(photo, photoContext, w, h);
 });
