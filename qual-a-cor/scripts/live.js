@@ -1,4 +1,5 @@
-import { drawFrame, setupCamera } from "./lib/setup.js";
+import { setupCamera } from "./lib/setup.js";
+import { drawFrame } from "./lib/frame.js";
 import { updateCameraCanvas } from "./lib/canvas.js";
 
 // Camera Video Element
