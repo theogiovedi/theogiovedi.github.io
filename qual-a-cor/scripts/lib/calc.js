@@ -12,8 +12,7 @@ function getColorDifference(rgb, rgb2) {
     const [ red, green, blue ] = hexToRgb(rgb)
     const [ red2, green2, blue2 ] = hexToRgb(rgb2);
 
-    //return Math.sqrt(Math.pow(red2 - red, 2) + Math.pow(green2 - green, 2) + Math.pow(blue2 - blue, 2))
-    return Math.pow(red2 - red, 2) + Math.pow(green2 - green, 2) + Math.pow(blue2 - blue, 2)
+    return Math.sqrt(Math.pow(red2 - red, 2) + Math.pow(green2 - green, 2) + Math.pow(blue2 - blue, 2))
 }
 
 export function normalToProt(rgb) {
