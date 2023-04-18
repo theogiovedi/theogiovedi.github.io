@@ -1,10 +1,14 @@
 import { setupCamera } from "./lib/setup.js";
-import { drawFrame } from "./lib/frame.js";
 import { updateCameraCanvas } from "./lib/canvas.js";
+import { drawFrame } from "./lib/frame.js";
 
 // Camera Video Element
 
 const cam = document.createElement("video");
+
+// CVD Type Selector
+
+const type = document.getElementById("type");
 
 // Canvas for drawing camera frames
 
@@ -41,7 +45,7 @@ window.addEventListener("load", () => {
 // Loop for generating frames
 
 const generateFrames = () => {
-    camPixels = drawFrame(cam, camContext, w, h);
+    camPixels = drawFrame(cam, camContext, type, w, h);
     setTimeout(generateFrames, framerate);
 }
 cam.addEventListener("playing", () => {

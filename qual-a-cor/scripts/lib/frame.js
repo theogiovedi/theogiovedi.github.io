@@ -1,6 +1,6 @@
 import { normalToProt, normalToDeut, normalToTrit } from "./calc.js";
 
-export function drawFrame(img, imgContext, w, h) {
+export function drawFrame(img, imgContext, type, w, h) {
     imgContext.drawImage(img, 0, 0, w, h);
     let imgPixels = imgContext.getImageData(0, 0, w, h);
 

@@ -61,7 +61,7 @@ window.addEventListener("load", () => {
 
 const generateFrames = () => {
     if (hasVideoInput) {
-        camPixels = drawFrame(cam, camContext, w, h);
+        camPixels = drawFrame(cam, camContext, type, w, h);
     }
     setTimeout(generateFrames, framerate);
 }

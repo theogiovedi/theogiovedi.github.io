@@ -29,10 +29,11 @@ const offlineAssets = [
     // Project libraries
 
     "/scripts/lib/calc.js",
-    "/scripts/lib/cam.js",
     "/scripts/lib/canvas.js",
     "/scripts/lib/colors.js",
+    "/scripts/lib/frame.js",
     "/scripts/lib/interface.js",
+    "/scripts/lib/setup.js",
     "/scripts/lib/svg.js",
 
     // Icons and Logos
