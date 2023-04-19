@@ -1,4 +1,4 @@
-const cacheName = "qual-a-cor-v2";
+const cacheName = "qual-a-cor-v2.1";
 const offlineAssets = [
 
     // HTML Pages
