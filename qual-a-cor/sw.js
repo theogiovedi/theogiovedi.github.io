@@ -1,67 +1,68 @@
 const cacheName = "qual-a-cor-v2.1";
 const offlineAssets = [
 
-    // HTML Pages
-    
-    "/index.html",
-    "/ao-vivo.html",
-    "/sobre.html",
-    "/fotos.html",
-    "/paletas.html",
+  // HTML Pages
 
-    // Stylesheets
+  "/index.html",
+  "/ao-vivo.html",
+  "/sobre.html",
+  "/fotos.html",
+  "/paletas.html",
 
-    "/styles/general.css",
-    "/styles/index.css",
-    "/styles/live.css",
-    "/styles/nav.css",
-    "/styles/about.css",
-    "/styles/photos.css",
-    "/styles/palettes.css",
+  // Stylesheets
 
-    // Page Scripts
+  "/styles/general.css",
+  "/styles/index.css",
+  "/styles/live.css",
+  "/styles/nav.css",
+  "/styles/about.css",
+  "/styles/photos.css",
+  "/styles/palettes.css",
 
-    "/scripts/live.js",
-    "/scripts/index.js",
-    "/scripts/photos.js",
-    "/scripts/palettes.js",
+  // Page Scripts
 
-    // Project libraries
+  "/scripts/live.js",
+  "/scripts/index.js",
+  "/scripts/photos.js",
+  "/scripts/palettes.js",
+  "/scripts/setupServiceWorker.js",
 
-    "/scripts/lib/calc.js",
-    "/scripts/lib/canvas.js",
-    "/scripts/lib/colors.js",
-    "/scripts/lib/frame.js",
-    "/scripts/lib/interface.js",
-    "/scripts/lib/setup.js",
-    "/scripts/lib/svg.js",
+  // Project libraries
 
-    // Icons and Logos
+  "/scripts/lib/calc.js",
+  "/scripts/lib/canvas.js",
+  "/scripts/lib/colors.js",
+  "/scripts/lib/frame.js",
+  "/scripts/lib/interface.js",
+  "/scripts/lib/setup.js",
+  "/scripts/lib/svg.js",
 
-    "/images/navlogo.svg",
-    "/images/favicon.png",
-    "/images/192.png",
-    "/images/384.png",
-    "/images/512.png",
-    "/images/1024.png",
-    "/images/1024-maskable.png",
+  // Icons and Logos
 
-    // Fonts
+  "/images/navlogo.svg",
+  "/images/favicon.png",
+  "/images/192.png",
+  "/images/384.png",
+  "/images/512.png",
+  "/images/1024.png",
+  "/images/1024-maskable.png",
 
-    "/fonts/FiraSans-Bold.ttf",
-    "/fonts/FiraSans-Italic.ttf",
-    "/fonts/FiraSans-Regular.ttf",
-    "/fonts/FiraCode-Regular.ttf",
+  // Fonts
+
+  "/fonts/FiraSans-Bold.ttf",
+  "/fonts/FiraSans-Italic.ttf",
+  "/fonts/FiraSans-Regular.ttf",
+  "/fonts/FiraCode-Regular.ttf"
 ];
 
 self.addEventListener("install", installEvent => {
-    installEvent.waitUntil(
-        caches.open(cacheName).then(cache => {
-            cache.addAll(offlineAssets);
-        }).catch(() => {
-            console.log("Erro: Não foi possível abrir o cache.")
-        })
-    )
+  installEvent.waitUntil(
+    caches.open(cacheName).then(cache => {
+      cache.addAll(offlineAssets);
+    }).catch(() => {
+      console.log("Erro: Não foi possível abrir o cache.")
+    })
+  )
 });
 
 self.addEventListener("fetch", fetchEvent => {
