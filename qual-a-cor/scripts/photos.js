@@ -62,3 +62,11 @@ window.matchMedia("(orientation: portrait)").addEventListener("change", () => {
         drawFrame(photo, photoContext, type, w, h);
     }
 });
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker
+            .register("./sw.js")
+            .catch(() => console.log("Erro: Não foi possível registrar o Service Worker"))
+    });
+}

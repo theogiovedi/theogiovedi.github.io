@@ -84,3 +84,11 @@ type.addEventListener("change", () => {
         }, framerate) // wait for one frame to be generated before getting new palettes
     }
 })  
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker
+            .register("./sw.js")
+            .catch(() => console.log("Erro: Não foi possível registrar o Service Worker"))
+    });
+}

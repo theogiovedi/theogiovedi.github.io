@@ -25,7 +25,7 @@ const offlineAssets = [
   "/scripts/index.js",
   "/scripts/photos.js",
   "/scripts/palettes.js",
-  "/scripts/setupServiceWorker.js",
+  "/scripts/about.js",
 
   // Project libraries
 
@@ -55,20 +55,22 @@ const offlineAssets = [
   "/fonts/FiraCode-Regular.ttf"
 ];
 
+// Add page content to browser cache
+
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
     caches.open(cacheName).then(cache => {
       cache.addAll(offlineAssets);
-    }).catch(() => {
-      console.log("Erro: Não foi possível abrir o cache.")
     })
-  )
+  );
 });
+
+// Redirect all fetch calls to 
 
 self.addEventListener("fetch", fetchEvent => {
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then(res => {
       return res || fetch(fetchEvent.request)
     })
-  )
+  );
 });

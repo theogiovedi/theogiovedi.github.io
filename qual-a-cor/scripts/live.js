@@ -57,3 +57,11 @@ cam.addEventListener("playing", () => {
 window.matchMedia("(orientation: landscape)").addEventListener("change", () => {
     [ windowSizes[0], windowSizes[1], w, h ] = updateCameraCanvas(camCanvas, windowSizes);
 });
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker
+            .register("./sw.js")
+            .catch(() => console.log("Erro: Não foi possível registrar o Service Worker"))
+    });
+}
