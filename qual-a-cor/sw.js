@@ -61,7 +61,7 @@ self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
     caches.open(cacheName).then(cache => {
       cache.addAll(offlineAssets);
-    })
+    }).catch(error => console.log(error))
   );
 });
 
