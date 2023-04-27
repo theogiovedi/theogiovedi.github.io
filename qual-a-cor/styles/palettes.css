@@ -31,7 +31,7 @@ button {
     border-radius: 0;
 }
 
-main p {
+#palettes {
     display: block;
     width: calc(100% - 40px);
     max-width: 600px;
@@ -40,7 +40,7 @@ main p {
     text-align: left;
 }
 
-main p div {
+#palettes div {
     margin: 0 10px -10px 0;
 }
 
