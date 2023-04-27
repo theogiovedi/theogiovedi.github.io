@@ -31,7 +31,7 @@ button {
     border-radius: 0;
 }
 
-#palettes {
+#palettes p {
     display: block;
     width: calc(100% - 40px);
     max-width: 600px;
@@ -40,7 +40,7 @@ button {
     text-align: left;
 }
 
-#palettes div {
+#palettes p div {
     margin: 0 10px -10px 0;
 }
 
@@ -57,14 +57,14 @@ canvas {
 }
 
 @media only screen and (max-width: 400px) {
-    main p {
+    #palettes p {
         width: calc(100% - 40px);
         margin: 10px auto;
         font-size: 22px;
         text-align: left;
     }
     
-    main p div {
+    #palettes p div {
         margin: 0 5px -5px 0;
     }
     
