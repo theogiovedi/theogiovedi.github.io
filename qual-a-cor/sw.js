@@ -37,7 +37,7 @@ const offlineAssets = [
   "./scripts/lib/setup.js",
   "./scripts/lib/svg.js",
 
-  // Icons and Logos
+  // App Icons and Logos
 
   "./images/navlogo.svg",
   "./images/favicon.png",
@@ -47,12 +47,10 @@ const offlineAssets = [
   "./images/1024.png",
   "./images/1024-maskable.png",
 
-  // Fonts
+  // Fonts and Icons
 
-  "./fonts/FiraSans-Bold.ttf",
-  "./fonts/FiraSans-Italic.ttf",
-  "./fonts/FiraSans-Regular.ttf",
-  "./fonts/FiraCode-Regular.ttf",
+  "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css",
+  "https://fonts.googleapis.com/css2?family=Fira+Code&family=Fira+Sans:ital,wght@0,400;0,700;1,400&display=swap"
 ];
 
 // Add page content to browser cache

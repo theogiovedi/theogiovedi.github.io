@@ -31,7 +31,7 @@ export function setupCamera(cam, camDiv, callback) {
     });
 }
 
-export function setupPhoto(type, photo, file) {
+export function setupFile(type, element, file) {
     type.style.display = "block";
-    photo.src = URL.createObjectURL(file.files[0]);
+    element.src = URL.createObjectURL(file.files[0]);
 }

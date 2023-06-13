@@ -1,6 +1,6 @@
-import { updatePhotoCanvas } from "./lib/canvas.js";
+import { updateFileCanvas } from "./lib/canvas.js";
 import { drawFrame } from "./lib/frame.js";
-import { setupPhoto } from "./lib/setup.js"
+import { setupFile } from "./lib/setup.js"
 
 // File Input Element
 
@@ -37,7 +37,7 @@ let windowSizes = [ window.innerWidth, window.innerHeight ];
 // Setup photo when user enters a file into file input
 
 file.addEventListener("change", () => {
-    setupPhoto(type, photo, file);
+    setupFile(type, photo, file);
 });
 
 // Update photo when the user change the CVD type
@@ -49,7 +49,7 @@ type.addEventListener("change", () => {
 // Update canvas and frame when image ends loading
 
 photo.addEventListener("load", () => {
-    [ w, h ] = updatePhotoCanvas(photoCanvas, windowSizes[0], photo.naturalWidth, photo.naturalHeight); // only update new height and width, without screen orientation change
+    [ w, h ] = updateFileCanvas(photoCanvas, windowSizes[0], photo.naturalWidth, photo.naturalHeight); // only update new height and width, without screen orientation change
     drawFrame(photo, photoContext, type, w, h);
 });
 
@@ -58,7 +58,7 @@ photo.addEventListener("load", () => {
 window.matchMedia("(orientation: portrait)").addEventListener("change", () => {
     [ windowSizes[0], windowSizes[1] ] = [ windowSizes[1], windowSizes[0] ]
     if (photo.src) {
-        [ w, h ] = updatePhotoCanvas(photoCanvas, windowSizes[0], photo.naturalWidth, photo.naturalHeight);
+        [ w, h ] = updateFileCanvas(photoCanvas, windowSizes[0], photo.naturalWidth, photo.naturalHeight);
         drawFrame(photo, photoContext, type, w, h);
     }
 });

@@ -1,26 +1,5 @@
-@font-face {
-    font-family: 'Fira Sans';
-    src: url('../fonts/FiraSans-Regular.ttf');
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: 'Fira Sans';
-    src: url('../fonts/FiraSans-Bold.ttf');
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: 'Fira Sans';
-    src: url('../fonts/FiraSans-Italic.ttf');
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Fira Code';
-    src: url('../fonts/FiraCode-Regular.ttf');
-    font-weight: normal;
-}
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Fira+Sans:ital,wght@0,400;0,700;1,400&display=swap");
 
 :root {
     --black: #181818;
