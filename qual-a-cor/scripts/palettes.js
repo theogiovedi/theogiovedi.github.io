@@ -59,14 +59,10 @@ window.addEventListener("load", () => {
 
 // Loop for generating frames
 
-const generateFrames = () => {
-    if (hasVideoInput) {
-        camPixels = drawFrame(cam, camContext, type, w, h);
-    }
-    setTimeout(generateFrames, framerate);
-}
 cam.addEventListener("playing", () => {
-    generateFrames()
+    setInterval(() => {
+        camPixels = drawFrame(cam, camContext, type, w, h);
+    }, framerate);
 });
 
 // Screen orientation responsiveness

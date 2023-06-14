@@ -29,7 +29,6 @@ const camContext = camCanvas.getContext("2d", { willReadFrequently: true });
 
 let hasVideoInput;
 let w, h;
-let camPixels;
 let framerate = 1000 / 24;
 let windowSizes = [ window.innerWidth, window.innerHeight ];
 
@@ -44,12 +43,10 @@ window.addEventListener("load", () => {
 
 // Loop for generating frames
 
-const generateFrames = () => {
-    camPixels = drawFrame(cam, camContext, type, w, h);
-    setTimeout(generateFrames, framerate);
-}
 cam.addEventListener("playing", () => {
-    generateFrames()
+    setInterval(() => {
+        drawFrame(cam, camContext, type, w, h);
+    }, framerate);
 });
 
 // Screen orientation responsiveness

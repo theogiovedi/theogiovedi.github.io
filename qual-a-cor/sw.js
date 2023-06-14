@@ -50,7 +50,13 @@ const offlineAssets = [
   // Fonts and Icons
 
   "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css",
-  "https://fonts.googleapis.com/css2?family=Fira+Code&family=Fira+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+  "https://fonts.googleapis.com/css2?family=Fira+Code&family=Fira+Sans:ital,wght@0,400;0,700;1,400&display=swap",
+
+  // TensorFlow and COCO-SSD
+
+  "https://unpkg.com/@tensorflow/tfjs@4.7.0/dist/tf.min.js",
+  "https://unpkg.com/@tensorflow-models/coco-ssd@2.2.2/dist/coco-ssd.min.js",
+  "https://storage.googleapis.com/tfjs-models/savedmodel/ssd_mobilenet_v2/model.json"
 ];
 
 // Add page content to browser cache
