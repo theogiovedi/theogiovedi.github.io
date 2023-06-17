@@ -1,5 +1,5 @@
-import { menu } from "./lib/menu";
-import { registerServiceWorker } from "./lib/pwa";
+import { menu } from "./lib/menu.js";
+import { registerServiceWorker } from "./lib/pwa.js";
 
 menu();
 

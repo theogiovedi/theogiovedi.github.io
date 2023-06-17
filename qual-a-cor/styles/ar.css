@@ -1,0 +1,23 @@
+@import url("./general.css");
+@import url("./nav.css");
+@import url("./button.css");
+@import url("./select.css");
+@import url("./slider.css");
+
+#left {
+  position: absolute;
+  left: 0;
+}
+
+#cam {
+    display: none;
+}
+
+#right {
+  position: absolute;
+  right: 0;
+}
+
+#slider, #slider-label {
+    display: none;
+}

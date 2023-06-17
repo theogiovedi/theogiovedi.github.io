@@ -19,6 +19,9 @@ export function menu() {
           for (let i = 0; i < cameraOnly.length; i++) {
             document.getElementById(cameraOnly[i]).style.display = "block";
           }
+          if (/(Android|iPhone)/.test(navigator.userAgent)) {
+            document.getElementById("ar-link").style.display = "block";
+          }
         }
       });
     });

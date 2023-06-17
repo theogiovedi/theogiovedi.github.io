@@ -40,13 +40,13 @@ nav {
     margin: 12px 0;
 }
 
-#live-link, #palettes-link, #hues-link {
-    display: "none";
-}
-
 #close-menu {
     font-size: 22px;
     font-weight: bold;
     color: var(--foreground-color);
     cursor: pointer;
+}
+
+#live-link, #palettes-link, #hues-link, #ar-link {
+    display: none;
 }
