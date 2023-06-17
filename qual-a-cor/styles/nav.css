@@ -46,6 +46,7 @@ nav {
 
 #close-menu {
     font-size: 22px;
+    font-weight: bold;
     color: var(--foreground-color);
     cursor: pointer;
 }

@@ -5,6 +5,7 @@ import { drawSimulationFrame } from "./lib/frame.js";
 import { updateCameraCanvas } from "./lib/canvas.js";
 import { menu } from "./lib/menu.js";
 import { registerServiceWorker } from "./lib/pwa.js";
+import { framerate } from "./lib/framerate.js";
 
 // Slider control for K
 
@@ -32,10 +33,8 @@ const camContext = camCanvas.getContext("2d", { willReadFrequently: true });
 
 // Global variables used in the functions bellow
 
-let hasVideoInput = false;
 let w, h;
 let camPixels;
-let framerate = 1000 / 24;
 let windowSizes = [window.innerWidth, window.innerHeight];
 let k = slider.value;
 
@@ -63,7 +62,6 @@ paletteButton.addEventListener("click", () => {
 
 window.addEventListener("load", () => {
   setupCamera(cam, camDiv, () => {
-    hasVideoInput = true;
     [windowSizes[0], windowSizes[1], w, h] = updateCameraCanvas(
       camCanvas,
       windowSizes

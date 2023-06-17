@@ -3,6 +3,7 @@ import { drawSimulationFrame } from "./lib/frame.js";
 import { menu } from "./lib/menu.js";
 import { registerServiceWorker } from "./lib/pwa.js";
 import { setupFile } from "./lib/setup.js";
+import { framerate } from "./lib/framerate.js";
 
 // File Input Element
 
@@ -36,7 +37,6 @@ const videoContext = videoCanvas.getContext("2d", { willReadFrequently: true });
 
 let w, h;
 let windowSizes = [window.innerWidth, window.innerHeight];
-let framerate = 1000 / 60;
 
 // Setup photo when user enters a file into file input
 
@@ -63,15 +63,11 @@ video.addEventListener("canplaythrough", () => {
 
 video.addEventListener("playing", () => {
   const progress = document.getElementById("progress-bar");
-  document.getElementById("toggle").innerText = `⏸`;
   setInterval(() => {
     progress.value = video.currentTime / video.duration;
   }, 1000);
 });
 
-video.addEventListener("pause", () => {
-  document.getElementById("toggle").innerText = `⏵︎`;
-});
 
 // Setup buttons for video control
 
