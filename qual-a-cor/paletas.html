@@ -1,89 +1,107 @@
 <!DOCTYPE html>
 
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
-    <link rel="stylesheet" href="./styles/palettes.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png" />
+    <link rel="stylesheet" href="./styles/palettes.css" />
     <title>Qual a Cor? | Paletas</title>
-    <meta name="description" content="Determine as cores predominantes ao vivo na sua webcam">
-    <link rel="manifest" href="./manifest.json">
-    <link rel="apple-touch-icon" href="./images/1024-maskable.png">
-    <meta name="theme-color" content="#F5F5F5">
-</head>
+    <meta
+      name="description"
+      content="Determine as cores predominantes ao vivo na sua webcam"
+    />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./images/1024-maskable.png" />
+    <meta name="theme-color" content="#F5F5F5" />
+  </head>
 
-<body>
-    <header>
-        <nav>
-            <a href="index.html"><img src="./images/navlogo.svg" alt="Logo do Qual a Cor?" id="navlogo"></a>
-            <ul>
-                <li><a href="./ao-vivo.html">Ao Vivo</a></li>
-                <li><a href="./fotos.html">Fotos</a></li>
-                <li><a href="./paletas.html">Paletas</a></li>
-                <li><a href="./sobre.html">Sobre</a></li>
-            </ul>
-        </nav>
+  <body>
+    <header id="header">
+      <nav>
+        <img
+          src="./images/navlogo.svg"
+          alt="Logo do Qual a Cor?"
+          id="navlogo"
+        />
+      </nav>
     </header>
-    <main>
-        <h1>Paletas</h1>
-        <select name="type" id="type">
-            <option value="normal" selected>Normal</option>
-            <option value="prot">Protanopia</option>
-            <option value="deut">Deuteranopia</option>
-            <option value="trit">Tritanopia</option>
-        </select>
-        <div id="cam"></div>
-        <button id="palette-button">Extrair paleta</button>
-        <div id="palettes"></div>
-        <footer id="main-footer">
-            <p>É importante lembrar que a imagem da sua câmera não é enviada para nenhum lugar, e tanto a extração da
-                paleta quanto a aplicação dos filtros são
-                realizados apenas no seu navegador. Sua imagem não é armazenada em nenhum servidor.</p>
-        </footer>
+    <main id="main">
+      <h1>Paletas</h1>
+      <label for="slider" id="slider-label">4 cores</label>
+      <input type="range" min="1" max="16" value="4" id="slider" />
+      <div id="cam"></div>
+      <button id="palette-button">Extrair paleta</button>
+      <div id="palettes"></div>
+      <footer id="main-footer">
+        <p>
+          É importante lembrar que a imagem da sua câmera não é enviada para
+          nenhum lugar, e tanto a extração da paleta quanto a aplicação dos
+          filtros são realizados apenas no seu navegador. Sua imagem não é
+          armazenada em nenhum servidor.
+        </p>
+      </footer>
     </main>
-    <footer>
-        <style>
-            .credits {
-                text-align: center;
-                margin: 40px 0;
-            }
+    <footer id="footer">
+      <style>
+        .credits {
+          text-align: center;
+          margin: 40px 0;
+        }
 
-            .credits-text {
-                font-size: 18px;
-            }
+        .credits-text {
+          font-size: 18px;
+        }
 
-            .credits-heart {
-                margin: 2px;
-                animation: credits-heart 1.5s linear infinite;
-            }
+        .credits-heart {
+          margin: 2px;
+          animation: credits-heart 1.5s linear infinite;
+        }
 
-            .credits-link {
-                text-decoration: underline;
-            }
+        .credits-link {
+          text-decoration: underline;
+        }
 
-            @keyframes credits-heart {
-                0% {
-                    opacity: 0.3;
-                }
+        @keyframes credits-heart {
+          0% {
+            opacity: 0.3;
+          }
 
-                50% {
-                    opacity: 1;
-                }
+          50% {
+            opacity: 1;
+          }
 
-                100% {
-                    opacity: 0.3;
-                }
-            }
-        </style>
-        <div class="credits">
-            <p class="credits-text"> Feito com <span class="credits-heart">❤️</span> por <a class="credits-link"
-                    href="https://github.com/theogiovedi" target="_blank">Théo Giovedi</a></p>
-        </div>
+          100% {
+            opacity: 0.3;
+          }
+        }
+      </style>
+      <div class="credits">
+        <p class="credits-text">
+          Feito com <span class="credits-heart">❤️</span> por
+          <a
+            class="credits-link"
+            href="https://github.com/theogiovedi"
+            target="_blank"
+            >Théo Giovedi</a
+          >
+        </p>
+      </div>
     </footer>
 
-    <script src="./scripts/palettes.js" type="module"></script>
-</body>
+    <div id="menu">
+      <ul>
+        <li id="home-link"><a href="./index.html">Home</a></li>
+        <li id="live-link"><a href="./ao-vivo.html">Ao Vivo</a></li>
+        <li id="photos-link"><a href="./fotos.html">Fotos</a></li>
+        <li id="videos-link"><a href="./videos.html">Vídeos</a></li>
+        <li id="palettes-link"><a href="./paletas.html">Paletas</a></li>
+        <li id="hues-link"><a href="./matizes.html">Matizes</a></li>
+        <li id="about-link"><a href="./sobre.html">Sobre</a></li>
+      </ul>
+      <div id="close-menu">🗙</div>
+    </div>
 
+    <script src="./scripts/palettes.js" type="module"></script>
+  </body>
 </html>

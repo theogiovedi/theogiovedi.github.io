@@ -1,6 +1,8 @@
 import { setupCamera } from "./lib/setup.js";
 import { updateCameraCanvas } from "./lib/canvas.js";
-import { drawFrame } from "./lib/frame.js";
+import { drawSimulationFrame } from "./lib/frame.js";
+import { menu } from "./lib/menu.js";
+import { registerServiceWorker } from "./lib/pwa.js";
 
 // Camera Video Element
 
@@ -30,35 +32,37 @@ const camContext = camCanvas.getContext("2d", { willReadFrequently: true });
 let hasVideoInput;
 let w, h;
 let framerate = 1000 / 24;
-let windowSizes = [ window.innerWidth, window.innerHeight ];
+let windowSizes = [window.innerWidth, window.innerHeight];
 
 // Setup Camera
 
 window.addEventListener("load", () => {
-    setupCamera(cam, camDiv, () => {
-        hasVideoInput = true;
-        [ windowSizes[0], windowSizes[1], w, h ] = updateCameraCanvas(camCanvas, windowSizes);
-    })
+  setupCamera(cam, camDiv, () => {
+    hasVideoInput = true;
+    [windowSizes[0], windowSizes[1], w, h] = updateCameraCanvas(
+      camCanvas,
+      windowSizes
+    );
+  });
 });
 
 // Loop for generating frames
 
 cam.addEventListener("playing", () => {
-    setInterval(() => {
-        drawFrame(cam, camContext, type, w, h);
-    }, framerate);
+  setInterval(() => {
+    drawSimulationFrame(cam, camContext, type, w, h);
+  }, framerate);
 });
 
 // Screen orientation responsiveness
 
 window.matchMedia("(orientation: landscape)").addEventListener("change", () => {
-    [ windowSizes[0], windowSizes[1], w, h ] = updateCameraCanvas(camCanvas, windowSizes);
+  [windowSizes[0], windowSizes[1], w, h] = updateCameraCanvas(
+    camCanvas,
+    windowSizes
+  );
 });
 
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker
-            .register("./sw.js")
-            .catch(() => console.log("Erro: Não foi possível registrar o Service Worker"))
-    });
-}
+menu();
+
+registerServiceWorker();

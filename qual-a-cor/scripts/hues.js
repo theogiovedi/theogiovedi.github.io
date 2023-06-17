@@ -1,12 +1,9 @@
-import { kMeans } from "./lib/calc.js";
-import { createPalettes, deletePalettes } from "./lib/interface.js";
 import { setupCamera } from "./lib/setup.js";
-import { drawSimulationFrame } from "./lib/frame.js";
 import { updateCameraCanvas } from "./lib/canvas.js";
 import { menu } from "./lib/menu.js";
 import { registerServiceWorker } from "./lib/pwa.js";
 
-// Slider control for K
+// Slider control for Hue shift
 
 const slider = document.getElementById("slider");
 const sliderLabel = document.getElementById("slider-label");
@@ -37,27 +34,6 @@ let w, h;
 let camPixels;
 let framerate = 1000 / 24;
 let windowSizes = [window.innerWidth, window.innerHeight];
-let k = slider.value;
-
-// Update K value when changed
-
-slider.addEventListener("input", () => {
-  k = slider.value;
-  sliderLabel.innerText = k === "1" ? "1 cor" : `${k} cores`;
-});
-
-// Add toggle functionality to palette button
-
-const paletteButton = document.getElementById("palette-button");
-paletteButton.addEventListener("click", () => {
-  if (cam.paused) {
-    deletePalettes();
-    cam.play();
-  } else {
-    cam.pause();
-    createPalettes(kMeans(camPixels, k));
-  }
-});
 
 // Setup Camera
 
@@ -71,11 +47,18 @@ window.addEventListener("load", () => {
   });
 });
 
+// Updating slider label
+
+slider.addEventListener("input", () => {
+  sliderLabel.innerText = `${slider.value}º`;
+  camCanvas.style.filter = `hue-rotate(${slider.value}deg)`;
+});
+
 // Loop for generating frames
 
 cam.addEventListener("playing", () => {
   setInterval(() => {
-    camPixels = drawSimulationFrame(cam, camContext, "normal", w, h);
+    camContext.drawImage(cam, 0, 0, w, h);
   }, framerate);
 });
 

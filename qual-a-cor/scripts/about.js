@@ -1,7 +1,6 @@
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker
-            .register("./sw.js")
-            .catch(() => console.log("Erro: Não foi possível registrar o Service Worker"))
-    });
-}
+import { menu } from "./lib/menu";
+import { registerServiceWorker } from "./lib/pwa";
+
+menu();
+
+registerServiceWorker();

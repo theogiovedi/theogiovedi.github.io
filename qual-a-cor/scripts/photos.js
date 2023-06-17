@@ -1,6 +1,8 @@
 import { updateFileCanvas } from "./lib/canvas.js";
-import { drawFrame } from "./lib/frame.js";
-import { setupFile } from "./lib/setup.js"
+import { drawSimulationFrame } from "./lib/frame.js";
+import { menu } from "./lib/menu.js";
+import { registerServiceWorker } from "./lib/pwa.js";
+import { setupFile } from "./lib/setup.js";
 
 // File Input Element
 
@@ -32,41 +34,47 @@ const photoContext = photoCanvas.getContext("2d", { willReadFrequently: true });
 // Global Variables
 
 let w, h;
-let windowSizes = [ window.innerWidth, window.innerHeight ];
+let windowSizes = [window.innerWidth, window.innerHeight];
 
 // Setup photo when user enters a file into file input
 
 file.addEventListener("change", () => {
-    setupFile(type, photo, file);
+  setupFile(type, photo, file);
 });
 
 // Update photo when the user change the CVD type
 
 type.addEventListener("change", () => {
-    drawFrame(photo, photoContext, type, w, h);
+  drawSimulationFrame(photo, photoContext, type, w, h);
 });
 
 // Update canvas and frame when image ends loading
 
 photo.addEventListener("load", () => {
-    [ w, h ] = updateFileCanvas(photoCanvas, windowSizes[0], photo.naturalWidth, photo.naturalHeight); // only update new height and width, without screen orientation change
-    drawFrame(photo, photoContext, type, w, h);
+  [w, h] = updateFileCanvas(
+    photoCanvas,
+    windowSizes[0],
+    photo.naturalWidth,
+    photo.naturalHeight
+  ); // only update new height and width, without screen orientation change
+  drawSimulationFrame(photo, photoContext, type, w, h);
 });
 
 // Screen orientation responsiveness
 
 window.matchMedia("(orientation: portrait)").addEventListener("change", () => {
-    [ windowSizes[0], windowSizes[1] ] = [ windowSizes[1], windowSizes[0] ]
-    if (photo.src) {
-        [ w, h ] = updateFileCanvas(photoCanvas, windowSizes[0], photo.naturalWidth, photo.naturalHeight);
-        drawFrame(photo, photoContext, type, w, h);
-    }
+  [windowSizes[0], windowSizes[1]] = [windowSizes[1], windowSizes[0]];
+  if (photo.src) {
+    [w, h] = updateFileCanvas(
+      photoCanvas,
+      windowSizes[0],
+      photo.naturalWidth,
+      photo.naturalHeight
+    );
+    drawSimulationFrame(photo, photoContext, type, w, h);
+  }
 });
 
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker
-            .register("./sw.js")
-            .catch(() => console.log("Erro: Não foi possível registrar o Service Worker"))
-    });
-}
+menu();
+
+registerServiceWorker();

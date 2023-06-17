@@ -972,27 +972,3 @@ export function deletePalettes() {
     palettes.innerHTML = "";
     paletteButton.innerHTML = "Extrair paleta";
 }
-
-export function createObjects(objectsList) {
-    const objects = document.getElementById("objects");
-    const objectButton = document.getElementById("object-button");
-
-    objects.innerHTML = "";
-
-    for (let i = 0; i < objectsList.length; i++) {
-        let object = document.createElement("p");
-        object.innerHTML = `<div class="color-square" style="background-color: rgb(${objectsList[i].color[0], objectsList[i].color[1], objectsList[i].color[2]})"></div>${objectsList[i].name}: ${getColorName(getClosestColor(rgbToHex([255, 255, 255])))}`;
-        object.style.display = "block";
-        objects.appendChild(object);
-    }
-
-    objectButton.innerHTML = "Apagar objetos";
-}
-
-export function deleteObjects() {
-    const objects = document.getElementById("objects");
-    const objectButton = document.getElementById("object-button");
-    
-    objects.innerHTML = "";
-    objectButton.innerHTML = "Identificar objetos";
-}

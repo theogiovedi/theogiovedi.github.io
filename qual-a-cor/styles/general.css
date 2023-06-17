@@ -1,4 +1,3 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Fira+Sans:ital,wght@0,400;0,700;1,400&display=swap");
 
 :root {
@@ -20,29 +19,6 @@
 body {
     font-family: 'Fira Sans', sans-serif;
     background-color: var(--background-color);
-}
-
-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 3px solid var(--foreground-color);
-    padding: 20px;
-}
-
-nav>ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 350px;
-    font-size: 24px;
-}
-
-nav>ul li {
-    list-style-type: none;
 }
 
 a {

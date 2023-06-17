@@ -1,5 +1,10 @@
+@import url('./button.css');
 @import url('./general.css');
 @import url('./nav.css');
+
+button {
+    width: fit-content;
+}
 
 input[type="text"] {
     outline: none;
@@ -25,24 +30,6 @@ input[type="color"] {
     padding: 5px;
     background-color: var(--background-color);
     border-radius: 0;
-}
-
-button {
-    display: block;
-    margin: 25px auto;
-    border: 3px solid var(--foreground-color);
-    background-color: var(--background-color);
-    color: var(--foreground-color);
-    font-size: 22px;
-    font-family: inherit;
-    padding: 10px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: var(--foreground-color);
-    color: var(--background-color);
-    transition: ease-in-out 0.3s;
 }
 
 .columns {
@@ -169,10 +156,11 @@ h5 {
 
 #learn-more a {
     display: block;
-    margin: 40px 0;
+    margin: 40px auto;
     text-align: center;
     text-decoration: underline;
     font-size: 20px;
+    width: fit-content;
 }
 
 .credits {

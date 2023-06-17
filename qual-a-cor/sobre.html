@@ -1,168 +1,267 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
-    <link rel="stylesheet" href="./styles/about.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png" />
+    <link rel="stylesheet" href="./styles/about.css" />
     <title>Qual a Cor? | Sobre</title>
-    <meta name="description" content="Saiba mais sobre o website Qual a Cor?">
-    <link rel="manifest" href="./manifest.json">
-    <link rel="apple-touch-icon" href="./images/1024-maskable.png">
-    <meta name="theme-color" content="#F5F5F5">
-</head>
+    <meta name="description" content="Saiba mais sobre o website Qual a Cor?" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./images/1024-maskable.png" />
+    <meta name="theme-color" content="#F5F5F5" />
+  </head>
 
-<body>
-    <header>
-        <nav>
-            <a href="index.html"><img src="./images/navlogo.svg" alt="Logo do Qual a Cor?" id="navlogo"></a>
-            <ul>
-                <li><a href="./ao-vivo.html">Ao Vivo</a></li>
-                <li><a href="./fotos.html">Fotos</a></li>
-                <li><a href="./paletas.html">Paletas</a></li>
-                <li><a href="./sobre.html">Sobre</a></li>
-            </ul>
-        </nav>
+  <body>
+    <header id="header">
+      <nav>
+        <img
+          src="./images/navlogo.svg"
+          alt="Logo do Qual a Cor?"
+          id="navlogo"
+        />
+      </nav>
     </header>
 
-    <main>
-        <h1>Sobre</h1>
-        <article>
-            <h2>Introdução</h2>
-            <p>O <em>Qual a Cor?</em> é um projeto criado para ajudar pessoas com daltonismo a identificar de maneira
-                eficiente e
-                eficaz os nomes corretos das cores. Além disso, o <em>site</em> também oferece ferramentas para
-                desenvolvedores
-                interessados em promover uma acessibilidade maior para daltônicos em seus produtos.</p>
-            <p>A ferramenta tem como origem um projeto de Trabalho de Conclusão de Curso para um curso técnico de
-                Informática para Internet e foi criada com a idéia de fornecer funcionalidades integradas em um único
-                lugar para facilitar o cotidiano de pessoas com dificuldades na identificação e percepção das cores.</p>
-            <p>A lista com os nomes de cores foi composta a partir da <a
-                    href="https://pt.wikipedia.org/wiki/Lista_de_cores">Lista de cores</a> da Wikipédia em Português,
-                selecionando apenas as cores que tinham correspondência com as keywords de cores presentes no CSS. O
-                método de busca do nome das cores foi feito através da distância euclidiana, interpretando o espaço de
-                cores RGB como um cubo onde cada dimensão corresponde a vermelho, verde ou azul.</p>
-            <p>O modelo de simulação de deficiência na percepção das cores utilizado tem sua origem no artigo "<a
-                    href="https://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html">A
-                    Physiologically-based Model for Simulation of Color Vision Deficiency</a>", escrito por Gustavo
-                Machado, Manuel Oliveira e Leandro Fernandes. A implementação foi feita usando como base as matrizes
-                pré-computadas de protanomalia, deuteranomalia e tritanomalia em suas severidades mais elevadas
-                (protanopia, deuteranopia e tritanopia, respectivamente),
-                oferecidas pelos autores.</p>
-            <p>O cálculo de contraste foi feito utilizando as informações e equações presentes na W3C Wiki e nas
-                Diretrizes de Acessibilidade para Conteúdo Web da W3C em sua versão 2.1</p>
-            <p>A extração das paletas de cores das imagens é feita utilizando o algoritmo <a
-                    href="https://en.wikipedia.org/wiki/K-means_clustering">K-means</a>, um
-                método de <a href="https://en.wikipedia.org/wiki/Cluster_analysis">clustering</a> (um tipo de
-                aprendizado de máquina não-supervisionado) que consiste em dividir um número <em>n</em> de elementos em
-                um número <em>k</em> de grupos, onde cada elemento pertencerá
-                ao grupo cuja média tenha a menor distância. O método de inicialização das centroides é o de Forgy, onde
-                são escolhidas aleatoriamente <em>k</em> observações entre os elementos como as centroides iniciais. Na
-                implementação do projeto, se a convergência (quando os centroides não mudam mais entre as iterações) não
-                for atingida em 10 iterações ou menos, o <em>loop</em> é interrompido
-                para evitar o travamento do <em>site</em></p>
-            <p>É importante ressaltar que os resultados da busca de cores, do modelo de simulação, do cálculo
-                de contraste e da extração das paletas não são precisos. A busca de cores retorna o nome da cor mais
-                próxima presente na lista de
-                cores do <em>site</em>, não necessariamente correspondendo ao nome correto da cor específica fornecida
-                pelo
-                usuário. Qualquer modelo de simulação da deficiência na percepção das cores, mesmo que preciso, não é
-                exato pois simula uma condição com variações significativas de indivíduo para indivíduo, fora a
-                possibilidade de inconsistências na implementação do modelo por parte do projeto. O cálculo de
-                contraste também <a href="https://www.w3.org/WAI/GL/wiki/Relative_luminance#ERRATA_NOTICE">não é
-                    perfeito</a>, mesmo sendo baseado no documento mais recente (em sua versão já consolidada,
-                descartando as versões 2.2 e 3.0, ainda em desenvolvimento) da W3C sobre o assunto. Por fim, o algoritmo
-                <em>K-means</em>
-                também não necessariamente encontrará os melhores valores para as cores, parando o processo de busca
-                logo quando a convergência for atingida.</p>
-            <p>Mesmo que seu autor não tenha daltonismo, o <em>site</em> nasceu com o intuito de tornar a web mais
-                acessível para
-                350 milhões de pessoas mundo afora, principalmente aquelas que falam português, e permitir que a criação
-                de produtos digitais com acessibilidade para essa população seja mais fácil e rápida.</p>
-            <h2>Dicas</h2>
-            <ul>
-                <li>Em gráficos de setores (pizza), sempre utilize um rótulo para cada seção, além da cor;<sup>[1]
-                        [2]</sup></li>
-                <li>Quando o usuário tiver que escolher uma cor para um produto ou afins, forneça um rótulo com o nome
-                    da cor, além da cor;<sup>[1] [2]</sup></li>
-                <li>Ao invés de utilizar <em>toggles</em> para selecionar uma opção, utilize <em>checkboxes</em>;<sup>[2]</sup></li>
-                <li>Quando tiver de notificar um erro ao usuário, utilize uma mensagem de erro, além da cor que escolher
-                    para sinalizar o erro;<sup>[2]</sup></li>
-                <li>Sempre que possível utilize ferramentas de checagem de contraste entre cores, garantindo que a razão
-                    de contraste esteja de acordo com as Diretrizes de Acessbilidade para Conteúdo Web da
-                    W3C;<sup>[2]</sup></li>
-                <li>Em <em>links</em>, utilize ícones, sublinhado ou formatos diferenciados para distinguir entre o <em>link</em> e o
-                    texto, além da cor;<sup>[2]</sup></li>
-                <li>Evite combinações de cores como: vermelho, verde e marrom; rosa, turquesa e cinza; e roxo e
-                    azul;<sup>[3]</sup></li>
-                <li>Procure usar combinações de cores com azul e laranja ou vermelho;<sup>[3]</sup></li>
-                <li>Procure sempre variar a intensidade do brilho das cores escolhidas, buscando um resultado que fique
-                    legível até mesmo em preto e branco;<sup>[3]</sup></li>
-                <li>Sempre que possível realize simulações de como seu <em>site</em> é percebido por pessoas com alguma
-                    deficiência na percepção de cores.<sup>[1]</sup></li>
-            </ul>
-            <p><strong>Fontes utilizadas:</strong> <a href="https://fonts.google.com/specimen/Fira+Sans">Fira
-                Sans</a> (<a href="https://github.com/mozilla/Fira/blob/master/LICENSE">OFL 1.1</a>),
-            <a href="https://fonts.google.com/specimen/Fira+Code">Fira Code</a> (<a
-                href="https://github.com/tonsky/FiraCode/blob/master/LICENSE">OFL 1.1</a>)
-            </p>
-        </article>
-        <footer id="main-footer">
-            <p>[1] FENNER, Priscila. Como tornar o seu <em>site</em> acessível para daltônicos. Hand Talk, 2019.
-                Disponível em: &lt;https://www.handtalk.me/br/blog/acessibilidade-daltonicos/&gt;. Acesso em: 10 mar.
-                2023.</p>
-            <p>[2] FERNANDES, Juliana. Acessibilidade para Daltônicos — Casos de falha e sucesso. Medium, 2017.
-                Disponível
-                em:
-                &lt;https://medium.com/acessibilito/acessibilidade-para-dalt%C3%B4nicos-casos-de-falha-e-sucesso-d76bf6e4261e&gt;.
-                Acesso em: 10 mar. 2023.</p>
-            <p>[3] ROST, Lisa Charlotte. Como pessoas daltônicas enxergam as cores de seus gráficos. Escola de Dados.
-                Disponível em:
-                &lt;https://escoladedados.org/tutoriais/como-pessoas-daltonicas-enxergam-as-cores-de-seus-graficos/&gt;.
-                Acesso em: 10 mar. 2023.</p>
-        </footer>
+    <main id="main">
+      <h1>Sobre</h1>
+      <article>
+        <h2>Introdução</h2>
+        <p>
+          O <em>Qual a Cor?</em> é um projeto criado para ajudar pessoas com
+          daltonismo a identificar de maneira eficiente e eficaz os nomes
+          corretos das cores. Além disso, o <em>site</em> também oferece
+          ferramentas para desenvolvedores interessados em promover uma
+          acessibilidade maior para daltônicos em seus produtos.
+        </p>
+        <p>
+          A ferramenta tem como origem um projeto de Trabalho de Conclusão de
+          Curso para um curso técnico de Informática para Internet e foi criada
+          com a idéia de fornecer funcionalidades integradas em um único lugar
+          para facilitar o cotidiano de pessoas com dificuldades na
+          identificação e percepção das cores.
+        </p>
+        <p>
+          A lista com os nomes de cores foi composta a partir da
+          <a href="https://pt.wikipedia.org/wiki/Lista_de_cores"
+            >Lista de cores</a
+          >
+          da Wikipédia em Português, selecionando apenas as cores que tinham
+          correspondência com as keywords de cores presentes no CSS. O método de
+          busca do nome das cores foi feito através da distância euclidiana,
+          interpretando o espaço de cores RGB como um cubo onde cada dimensão
+          corresponde a vermelho, verde ou azul.
+        </p>
+        <p>
+          O modelo de simulação de deficiência na percepção das cores utilizado
+          tem sua origem no artigo "<a
+            href="https://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html"
+            >A Physiologically-based Model for Simulation of Color Vision
+            Deficiency</a
+          >", escrito por Gustavo Machado, Manuel Oliveira e Leandro Fernandes.
+          A implementação foi feita usando como base as matrizes pré-computadas
+          de protanomalia, deuteranomalia e tritanomalia em suas severidades
+          mais elevadas (protanopia, deuteranopia e tritanopia,
+          respectivamente), oferecidas pelos autores.
+        </p>
+        <p>
+          O cálculo de contraste foi feito utilizando as informações e equações
+          presentes na W3C Wiki e nas Diretrizes de Acessibilidade para Conteúdo
+          Web da W3C em sua versão 2.1
+        </p>
+        <p>
+          A extração das paletas de cores das imagens é feita utilizando o
+          algoritmo
+          <a href="https://en.wikipedia.org/wiki/K-means_clustering">K-means</a
+          >, um método de
+          <a href="https://en.wikipedia.org/wiki/Cluster_analysis"
+            >clustering</a
+          >
+          (um tipo de aprendizado de máquina não-supervisionado) que consiste em
+          dividir um número <em>n</em> de elementos em um número <em>k</em> de
+          grupos, onde cada elemento pertencerá ao grupo cuja média tenha a
+          menor distância. O método de inicialização das centroides é o de
+          Forgy, onde são escolhidas aleatoriamente <em>k</em> observações entre
+          os elementos como as centroides iniciais. Na implementação do projeto,
+          se a convergência (quando os centroides não mudam mais entre as
+          iterações) não for atingida em 10 iterações ou menos, o
+          <em>loop</em> é interrompido para evitar o travamento do <em>site</em>
+        </p>
+        <p>
+          É importante ressaltar que os resultados da busca de cores, do modelo
+          de simulação, do cálculo de contraste e da extração das paletas não
+          são precisos. A busca de cores retorna o nome da cor mais próxima
+          presente na lista de cores do <em>site</em>, não necessariamente
+          correspondendo ao nome correto da cor específica fornecida pelo
+          usuário. Qualquer modelo de simulação da deficiência na percepção das
+          cores, mesmo que preciso, não é exato pois simula uma condição com
+          variações significativas de indivíduo para indivíduo, fora a
+          possibilidade de inconsistências na implementação do modelo por parte
+          do projeto. O cálculo de contraste também
+          <a
+            href="https://www.w3.org/WAI/GL/wiki/Relative_luminance#ERRATA_NOTICE"
+            >não é perfeito</a
+          >, mesmo sendo baseado no documento mais recente (em sua versão já
+          consolidada, descartando as versões 2.2 e 3.0, ainda em
+          desenvolvimento) da W3C sobre o assunto. Por fim, o algoritmo
+          <em>K-means</em>
+          também não necessariamente encontrará os melhores valores para as
+          cores, parando o processo de busca logo quando a convergência for
+          atingida.
+        </p>
+        <p>
+          Mesmo que seu autor não tenha daltonismo, o <em>site</em> nasceu com o
+          intuito de tornar a web mais acessível para 350 milhões de pessoas
+          mundo afora, principalmente aquelas que falam português, e permitir
+          que a criação de produtos digitais com acessibilidade para essa
+          população seja mais fácil e rápida.
+        </p>
+        <h2>Dicas</h2>
+        <ul>
+          <li>
+            Em gráficos de setores (pizza), sempre utilize um rótulo para cada
+            seção, além da cor;<sup>[1] [2]</sup>
+          </li>
+          <li>
+            Quando o usuário tiver que escolher uma cor para um produto ou
+            afins, forneça um rótulo com o nome da cor, além da cor;<sup
+              >[1] [2]</sup
+            >
+          </li>
+          <li>
+            Ao invés de utilizar <em>toggles</em> para selecionar uma opção,
+            utilize <em>checkboxes</em>;<sup>[2]</sup>
+          </li>
+          <li>
+            Quando tiver de notificar um erro ao usuário, utilize uma mensagem
+            de erro, além da cor que escolher para sinalizar o erro;<sup
+              >[2]</sup
+            >
+          </li>
+          <li>
+            Sempre que possível utilize ferramentas de checagem de contraste
+            entre cores, garantindo que a razão de contraste esteja de acordo
+            com as Diretrizes de Acessbilidade para Conteúdo Web da W3C;<sup
+              >[2]</sup
+            >
+          </li>
+          <li>
+            Em <em>links</em>, utilize ícones, sublinhado ou formatos
+            diferenciados para distinguir entre o <em>link</em> e o texto, além
+            da cor;<sup>[2]</sup>
+          </li>
+          <li>
+            Evite combinações de cores como: vermelho, verde e marrom; rosa,
+            turquesa e cinza; e roxo e azul;<sup>[3]</sup>
+          </li>
+          <li>
+            Procure usar combinações de cores com azul e laranja ou
+            vermelho;<sup>[3]</sup>
+          </li>
+          <li>
+            Procure sempre variar a intensidade do brilho das cores escolhidas,
+            buscando um resultado que fique legível até mesmo em preto e
+            branco;<sup>[3]</sup>
+          </li>
+          <li>
+            Sempre que possível realize simulações de como seu <em>site</em> é
+            percebido por pessoas com alguma deficiência na percepção de
+            cores.<sup>[1]</sup>
+          </li>
+        </ul>
+        <p>
+          <strong>Fontes utilizadas:</strong>
+          <a href="https://fonts.google.com/specimen/Fira+Sans">Fira Sans</a>
+          (<a href="https://github.com/mozilla/Fira/blob/master/LICENSE"
+            >OFL 1.1</a
+          >),
+          <a href="https://fonts.google.com/specimen/Fira+Code">Fira Code</a>
+          (<a href="https://github.com/tonsky/FiraCode/blob/master/LICENSE"
+            >OFL 1.1</a
+          >)
+        </p>
+      </article>
+      <footer id="main-footer">
+        <p>
+          [1] FENNER, Priscila. Como tornar o seu <em>site</em> acessível para
+          daltônicos. Hand Talk, 2019. Disponível em:
+          &lt;https://www.handtalk.me/br/blog/acessibilidade-daltonicos/&gt;.
+          Acesso em: 10 mar. 2023.
+        </p>
+        <p>
+          [2] FERNANDES, Juliana. Acessibilidade para Daltônicos — Casos de
+          falha e sucesso. Medium, 2017. Disponível em:
+          &lt;https://medium.com/acessibilito/acessibilidade-para-dalt%C3%B4nicos-casos-de-falha-e-sucesso-d76bf6e4261e&gt;.
+          Acesso em: 10 mar. 2023.
+        </p>
+        <p>
+          [3] ROST, Lisa Charlotte. Como pessoas daltônicas enxergam as cores de
+          seus gráficos. Escola de Dados. Disponível em:
+          &lt;https://escoladedados.org/tutoriais/como-pessoas-daltonicas-enxergam-as-cores-de-seus-graficos/&gt;.
+          Acesso em: 10 mar. 2023.
+        </p>
+      </footer>
     </main>
-    <footer>
-        <style>
-            .credits {
-                text-align: center;
-                margin: 40px 0;
-            }
+    <footer id="footer">
+      <style>
+        .credits {
+          text-align: center;
+          margin: 40px 0;
+        }
 
-            .credits-text {
-                font-size: 18px;
-            }
+        .credits-text {
+          font-size: 18px;
+        }
 
-            .credits-heart {
-                margin: 2px;
-                animation: credits-heart 1.5s linear infinite;
-            }
+        .credits-heart {
+          margin: 2px;
+          animation: credits-heart 1.5s linear infinite;
+        }
 
-            .credits-link {
-                text-decoration: underline;
-            }
+        .credits-link {
+          text-decoration: underline;
+        }
 
-            @keyframes credits-heart {
-                0% {
-                    opacity: 0.3;
-                }
+        @keyframes credits-heart {
+          0% {
+            opacity: 0.3;
+          }
 
-                50% {
-                    opacity: 1;
-                }
+          50% {
+            opacity: 1;
+          }
 
-                100% {
-                    opacity: 0.3;
-                }
-            }
-        </style>
-        <div class="credits">
-            <p class="credits-text"> Feito com <span class="credits-heart">❤️</span> por <a class="credits-link"
-                    href="https://github.com/theogiovedi" target="_blank">Théo Giovedi</a></p>
-        </div>
+          100% {
+            opacity: 0.3;
+          }
+        }
+      </style>
+      <div class="credits">
+        <p class="credits-text">
+          Feito com <span class="credits-heart">❤️</span> por
+          <a
+            class="credits-link"
+            href="https://github.com/theogiovedi"
+            target="_blank"
+            >Théo Giovedi</a
+          >
+        </p>
+      </div>
     </footer>
-    <script src="./scripts/about.js" type="module"></script>
-</body>
 
+    <div id="menu">
+      <ul>
+        <li id="home-link"><a href="./index.html">Home</a></li>
+        <li id="live-link"><a href="./ao-vivo.html">Ao Vivo</a></li>
+        <li id="photos-link"><a href="./fotos.html">Fotos</a></li>
+        <li id="videos-link"><a href="./videos.html">Vídeos</a></li>
+        <li id="palettes-link"><a href="./paletas.html">Paletas</a></li>
+        <li id="hues-link"><a href="./matizes.html">Matizes</a></li>
+        <li id="about-link"><a href="./sobre.html">Sobre</a></li>
+      </ul>
+      <div id="close-menu">🗙</div>
+    </div>
+
+    <script src="./scripts/about.js" type="module"></script>
+  </body>
 </html>
