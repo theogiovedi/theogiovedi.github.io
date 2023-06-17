@@ -68,7 +68,6 @@ video.addEventListener("playing", () => {
   }, 1000);
 });
 
-
 // Setup buttons for video control
 
 // Go Backwards button
@@ -108,13 +107,16 @@ document.getElementById("forward").addEventListener("click", () => {
 
 // Screen orientation responsiveness
 
-window.matchMedia("(orientation: landscape)").addEventListener("change", () => {
-  [w, h] = updateFileCanvas(
-    videoCanvas,
-    windowSizes[0],
-    video.videoWidth,
-    video.videoHeight
-  );
+window.matchMedia("(orientation: portrait)").addEventListener("change", () => {
+  [windowSizes[0], windowSizes[1]] = [windowSizes[1], windowSizes[0]];
+  if (video.src) {
+    [w, h] = updateFileCanvas(
+      videoCanvas,
+      windowSizes[0],
+      video.videoWidth,
+      video.videoHeight
+    );
+  }
 });
 
 menu();
