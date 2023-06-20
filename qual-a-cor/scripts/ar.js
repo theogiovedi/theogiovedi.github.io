@@ -96,12 +96,12 @@ camDiv.addEventListener("click", () => {
 
 document.addEventListener("fullscreenchange", () => {
   if (document.fullscreenElement) {
-    camDiv.style.display = "block";
+    camDiv.style.display = "flex";
     header.style.display = "none";
     main.style.display = "none";
     footer.style.display = "none";
   } else {
-    camDiv.style.display = "none";
+    camDiv.style.display = "flex";
     header.style.display = "block";
     main.style.display = "block";
     footer.style.display = "block";
