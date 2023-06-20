@@ -44,7 +44,7 @@ const footer = document.getElementById("footer");
 
 // Global variables used in the functions bellow
 
-let w = Math.max(window.screen.width, window.screen.height) / 2,
+let w = (Math.max(window.screen.width, window.screen.height) + 20) / 2,
   h = Math.max(window.screen.width, window.screen.height);
 let clickCounter = 0;
 

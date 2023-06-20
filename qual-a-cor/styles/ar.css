@@ -5,8 +5,8 @@
 @import url("./slider.css");
 
 #left {
-  position: absolute;
-  left: 0;
+  position: fixed;
+  left: -20px;
 }
 
 #cam {
@@ -14,8 +14,8 @@
 }
 
 #right {
-  position: absolute;
-  right: 0;
+  position: fixed;
+  right: 0px;
 }
 
 #slider, #slider-label {
