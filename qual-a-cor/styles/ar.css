@@ -6,7 +6,7 @@
 
 #left {
   position: fixed;
-  left: -150px;
+  left: -50px;
   z-index: 2;
 }
 
@@ -16,8 +16,8 @@
 
 #right {
   position: fixed;
-  right: -150px;
-  z-index: 2;
+  right: -50px;
+  z-index: 1;
 }
 
 #slider, #slider-label {
