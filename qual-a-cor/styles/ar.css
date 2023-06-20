@@ -6,7 +6,7 @@
 
 #left {
   position: fixed;
-  left: -300px;
+  left: -200px;
   z-index: 2;
 }
 
@@ -16,7 +16,7 @@
 
 #right {
   position: fixed;
-  right: -300px;
+  right: -200px;
   z-index: 1;
 }
 
