@@ -22,12 +22,12 @@
 
 #left {
   position: absolute;
-  right: 0;
+  left: 0;
 }
 
 #right {
   position: absolute;
-  left: 0;
+  right: 0;
 }
 
 #cam {
