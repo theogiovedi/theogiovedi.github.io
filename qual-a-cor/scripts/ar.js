@@ -113,22 +113,7 @@ document.addEventListener("fullscreenchange", () => {
 // Setup camera
 
 window.addEventListener("load", () => {
-  setupCamera(cam, camDiv, () => {}, {
-    video: {
-      facingMode: {
-        ideal: "environment"
-      },
-      aspectRatio: {
-        ideal: 1.0
-      },
-      width: {
-        ideal: 4096
-      },
-      height: {
-        ideal: 4096
-      }
-    }
-  });
+  setupCamera(cam, camDiv, () => {});
 });
 
 // Loop for generating frames

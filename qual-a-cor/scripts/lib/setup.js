@@ -1,4 +1,4 @@
-export function setupCamera(cam, camDiv, callback, constraints = { video : { facingMode: { ideal: "environment" }}}) {
+export function setupCamera(cam, camDiv, callback) {
     let hasVideoInput;
     navigator.mediaDevices.enumerateDevices().then((devices) => {
         devices.forEach((device) => {
