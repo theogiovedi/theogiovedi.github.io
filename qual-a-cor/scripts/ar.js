@@ -46,7 +46,7 @@ const footer = document.getElementById("footer");
 
 let offset = 150;
 let w = (Math.max(window.screen.width, window.screen.height) / 2) + offset,
-  h = Math.min(window.screen.width, window.screen.height);
+  h = w;
 let clickCounter = 0;
 
 left.width = right.width = w;
@@ -113,7 +113,22 @@ document.addEventListener("fullscreenchange", () => {
 // Setup camera
 
 window.addEventListener("load", () => {
-  setupCamera(cam, camDiv, () => {});
+  setupCamera(cam, camDiv, () => {}, {
+    video: {
+      facingMode: {
+        ideal: "environment"
+      },
+      aspectRatio: {
+        ideal: 1.0
+      },
+      width: {
+        ideal: 4096
+      },
+      height: {
+        ideal: 4096
+      }
+    }
+  });
 });
 
 // Loop for generating frames
