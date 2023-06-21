@@ -44,12 +44,12 @@ const footer = document.getElementById("footer");
 
 // Global variables used in the functions bellow
 
-let offset = 250;
+let offset = 150;
 let w = (Math.max(window.screen.width, window.screen.height) / 2) + offset,
   h = Math.max(window.screen.width, window.screen.height);
 let clickCounter = 0;
 
-left.width = right.width = w - offset;
+left.width = right.width = w;
 left.height = right.height = h;
 
 // Handle simulation type selection
