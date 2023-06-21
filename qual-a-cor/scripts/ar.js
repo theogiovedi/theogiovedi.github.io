@@ -44,11 +44,12 @@ const footer = document.getElementById("footer");
 
 // Global variables used in the functions bellow
 
-let w = (Math.max(window.screen.width, window.screen.height) / 2) + 50,
+let offset = 150;
+let w = (Math.max(window.screen.width, window.screen.height) / 2) + offset,
   h = Math.max(window.screen.width, window.screen.height);
 let clickCounter = 0;
 
-left.width = right.width = w;
+left.width = right.width = w - offset;
 left.height = right.height = h;
 
 // Handle simulation type selection
@@ -96,12 +97,12 @@ camDiv.addEventListener("click", () => {
 
 document.addEventListener("fullscreenchange", () => {
   if (document.fullscreenElement) {
-    camDiv.style.display = "flex";
+    camDiv.style.display = "block";
     header.style.display = "none";
     main.style.display = "none";
     footer.style.display = "none";
   } else {
-    camDiv.style.display = "flex";
+    camDiv.style.display = "none";
     header.style.display = "block";
     main.style.display = "block";
     footer.style.display = "block";

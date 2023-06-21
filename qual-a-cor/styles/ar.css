@@ -4,23 +4,39 @@
 @import url("./select.css");
 @import url("./slider.css");
 
-#left {
-  position: fixed;
-  left: -50px;
-  z-index: 2;
+#left-side {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
 }
 
-#cam {
-    display: none;
-    flex-direction: row-reverse;
+#right-side {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#left {
+  position: absolute;
+  right: 0;
 }
 
 #right {
-  position: fixed;
-  right: -50px;
-  z-index: 2;
+  position: absolute;
+  left: 0;
 }
 
-#slider, #slider-label {
-    display: none;
+#cam {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+}
+
+#slider,
+#slider-label {
+  display: none;
 }
