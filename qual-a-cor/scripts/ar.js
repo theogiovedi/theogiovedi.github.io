@@ -46,7 +46,7 @@ const footer = document.getElementById("footer");
 
 let offset = 150;
 let w = (Math.max(window.screen.width, window.screen.height) / 2) + offset,
-  h = Math.max(window.screen.width, window.screen.height);
+  h = Math.min(window.screen.width, window.screen.height);
 let clickCounter = 0;
 
 left.width = right.width = w;
